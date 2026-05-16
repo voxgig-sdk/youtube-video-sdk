@@ -1,0 +1,226 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "YouTube Video API",
+    "description": "This API provides data related to YouTube videos, including details such as views, upload date, duration, and descriptions. It allows developers to fetch comprehensive information about specific videos from the platform.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "API Support",
+      "url": "https://freepublicapis.com/youtube-video-api"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://abhi-api.vercel.app",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/api/search/yts": {
+      "get": {
+        "summary": "Search YouTube videos",
+        "description": "Fetches comprehensive information about YouTube videos based on the search query, including views, upload date, duration, description, channel information, and thumbnails.",
+        "operationId": "searchYouTubeVideos",
+        "tags": [
+          "Video Search"
+        ],
+        "parameters": [
+          {
+            "name": "text",
+            "in": "query",
+            "description": "Search query text to find YouTube videos",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "heat waves"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with video information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VideoResponse"
+                },
+                "example": {
+                  "code": 200,
+                  "status": true,
+                  "creator": "𝙰𝙱𝙷𝙸𝚂𝙷𝙴𝙺 𝚂𝚄𝚁𝙴𝚂𝙷🍀",
+                  "result": {
+                    "title": "Glass Animals - Heat Waves (Official Video)",
+                    "type": "video",
+                    "views": 877598844,
+                    "uploaded": "5 years ago",
+                    "duration": "3 minutes 56 seconds",
+                    "description": "I LOVE YOU SO F***ING MUCH. Our fourth studio album. Out now. Order :: https://glassanimals.lnk.to/loveYT Official store ...",
+                    "channel": "Glass Animals",
+                    "url": "https://youtube.com/watch?v=mRD0-GxqHVo",
+                    "thumbnail": "https://i.ytimg.com/vi/mRD0-GxqHVo/hq720.jpg"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - missing or invalid search query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No videos found for the given search query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "VideoResponse": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "description": "HTTP status code",
+            "example": 200
+          },
+          "status": {
+            "type": "boolean",
+            "description": "Indicates if the request was successful",
+            "example": true
+          },
+          "creator": {
+            "type": "string",
+            "description": "API creator attribution",
+            "example": "𝙰𝙱𝙷𝙸𝚂𝙷𝙴𝙺 𝚂𝚄𝚁𝙴𝚂𝙷🍀"
+          },
+          "result": {
+            "$ref": "#/components/schemas/VideoDetails"
+          }
+        },
+        "required": [
+          "code",
+          "status",
+          "result"
+        ]
+      },
+      "VideoDetails": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "Title of the YouTube video",
+            "example": "Glass Animals - Heat Waves (Official Video)"
+          },
+          "type": {
+            "type": "string",
+            "description": "Type of content",
+            "example": "video"
+          },
+          "views": {
+            "type": "integer",
+            "description": "Number of views the video has received",
+            "example": 877598844
+          },
+          "uploaded": {
+            "type": "string",
+            "description": "Time since the video was uploaded",
+            "example": "5 years ago"
+          },
+          "duration": {
+            "type": "string",
+            "description": "Duration of the video",
+            "example": "3 minutes 56 seconds"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the video",
+            "example": "I LOVE YOU SO F***ING MUCH. Our fourth studio album. Out now. Order :: https://glassanimals.lnk.to/loveYT Official store ..."
+          },
+          "channel": {
+            "type": "string",
+            "description": "Name of the YouTube channel that uploaded the video",
+            "example": "Glass Animals"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "Direct URL to the YouTube video",
+            "example": "https://youtube.com/watch?v=mRD0-GxqHVo"
+          },
+          "thumbnail": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL to the video thumbnail image",
+            "example": "https://i.ytimg.com/vi/mRD0-GxqHVo/hq720.jpg"
+          }
+        },
+        "required": [
+          "title",
+          "type",
+          "views",
+          "uploaded",
+          "duration",
+          "description",
+          "channel",
+          "url",
+          "thumbnail"
+        ]
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "description": "HTTP status code",
+            "example": 400
+          },
+          "status": {
+            "type": "boolean",
+            "description": "Indicates if the request was successful",
+            "example": false
+          },
+          "message": {
+            "type": "string",
+            "description": "Error message describing what went wrong",
+            "example": "Invalid search query parameter"
+          }
+        },
+        "required": [
+          "code",
+          "status",
+          "message"
+        ]
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Video Search",
+      "description": "Operations related to searching and retrieving YouTube video information"
+    }
+  ]
+}

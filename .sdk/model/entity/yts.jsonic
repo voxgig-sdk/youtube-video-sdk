@@ -1,0 +1,71 @@
+# Entity: yts
+
+main: kit: entity: yts: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "code"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "creator"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "result"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "status"
+      req: true
+      type: "`$BOOLEAN`"
+    }
+  ]
+
+  name: "yts"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                example: "heat waves"
+                kind: "query"
+                name: "text"
+                orig: "text"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/search/yts"
+          parts: [
+            "api"
+            "search"
+            "yts"
+          ]
+          select: {
+            exist: [
+              "text"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

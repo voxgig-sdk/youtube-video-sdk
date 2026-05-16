@@ -1,0 +1,24 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        name: "API Support"
+        url: "https://freepublicapis.com/youtube-video-api"
+      }
+      description: "This API provides data related to YouTube videos, including details such as views, upload date, duration, and descriptions. It allows developers to fetch comprehensive information about specific videos from the platform."
+      servers: [
+        {
+          description: "Production server"
+          url: "https://abhi-api.vercel.app"
+        }
+      ]
+      title: "YouTube Video API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}
