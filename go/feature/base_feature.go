@@ -1,7 +1,7 @@
 package feature
 
 import (
-	"github.com/voxgig-sdk/youtube-video-sdk/core"
+	"github.com/voxgig-sdk/youtube-video-sdk/go/core"
 )
 
 type BaseFeature struct {

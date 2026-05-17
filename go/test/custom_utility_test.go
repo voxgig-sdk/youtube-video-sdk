@@ -3,7 +3,7 @@ package sdktest
 import (
 	"testing"
 
-	sdk "github.com/voxgig-sdk/youtube-video-sdk"
+	sdk "github.com/voxgig-sdk/youtube-video-sdk/go"
 )
 
 func TestCustomUtility(t *testing.T) {

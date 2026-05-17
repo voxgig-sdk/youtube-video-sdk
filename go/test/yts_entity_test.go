@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/youtube-video-sdk"
-	"github.com/voxgig-sdk/youtube-video-sdk/core"
+	sdk "github.com/voxgig-sdk/youtube-video-sdk/go"
+	"github.com/voxgig-sdk/youtube-video-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/youtube-video-sdk/go/utility/struct"
 )
 
 func TestYtsEntity(t *testing.T) {

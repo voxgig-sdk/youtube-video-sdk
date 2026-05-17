@@ -1,10 +1,10 @@
 package voxgigyoutubevideosdk
 
 import (
-	"github.com/voxgig-sdk/youtube-video-sdk/core"
-	"github.com/voxgig-sdk/youtube-video-sdk/entity"
-	"github.com/voxgig-sdk/youtube-video-sdk/feature"
-	_ "github.com/voxgig-sdk/youtube-video-sdk/utility"
+	"github.com/voxgig-sdk/youtube-video-sdk/go/core"
+	"github.com/voxgig-sdk/youtube-video-sdk/go/entity"
+	"github.com/voxgig-sdk/youtube-video-sdk/go/feature"
+	_ "github.com/voxgig-sdk/youtube-video-sdk/go/utility"
 )
 
 // Type aliases preserve external API.

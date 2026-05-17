@@ -29,7 +29,7 @@ class Config {
 
 
   options = {
-    base: 'https://abhi-api.vercel.app',
+    base: '$$main.kit.info.servers.0.url$$',
 
     'AUTHBLOCK'headers: 'HEADERS',
 

@@ -4,7 +4,7 @@ import (
 	"log/slog"
 	"os"
 
-	"github.com/voxgig-sdk/youtube-video-sdk/core"
+	"github.com/voxgig-sdk/youtube-video-sdk/go/core"
 )
 
 type LogFeature struct {

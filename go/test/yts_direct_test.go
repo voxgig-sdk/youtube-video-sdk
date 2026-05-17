@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/youtube-video-sdk"
-	"github.com/voxgig-sdk/youtube-video-sdk/core"
+	sdk "github.com/voxgig-sdk/youtube-video-sdk/go"
+	"github.com/voxgig-sdk/youtube-video-sdk/go/core"
 )
 
 func TestYtsDirect(t *testing.T) {
