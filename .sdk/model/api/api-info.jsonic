@@ -17,8 +17,21 @@ main: {
       ]
       title: "YouTube Video API"
       version: "1.0.0"
+      tagline: "Search YouTube videos by text and get metadata like views, upload date, duration, and descriptions"
+      homepage: "https://abhi-api.vercel.app"
+      docs_url: "https://abhi-api.vercel.app"
+      about_md: `The YouTube Video API is a small endpoint hosted on [abhi-api.vercel.app](https://abhi-api.vercel.app), a free public-API hub maintained by Abhishek Suresh. It exposes a single text-search endpoint that returns YouTube video metadata for the supplied query.
+
+What you get from the API:
+
+- Video search results for a free-text query
+- Per-video metadata including views, upload date, duration, and description
+
+Operational notes: the upstream service is community-run and has no published authentication, rate-limit, or licence terms. CORS is reported as disabled on the [freepublicapis.com listing](https://freepublicapis.com/youtube-video-api), so browser callers may need a proxy. Treat the endpoint as best-effort and avoid depending on it for production traffic.`
+      entity_desc: {
+        yts: "YouTube video search results — query with a `text` parameter against `GET /api/search/yts` to receive video metadata such as views, upload date, duration, and description."
+      }
+      auth: false
     }
   }
-}
-
 }

@@ -85,7 +85,6 @@ function yts_basic_setup($extra)
         "YOUTUBEVIDEO_TEST_YTS_ENTID" => $idmap,
         "YOUTUBEVIDEO_TEST_LIVE" => "FALSE",
         "YOUTUBEVIDEO_TEST_EXPLAIN" => "FALSE",
-        "YOUTUBEVIDEO_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -97,7 +96,6 @@ function yts_basic_setup($extra)
     if ($env["YOUTUBEVIDEO_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["YOUTUBEVIDEO_APIKEY"],
             ],
             $extra ?? [],
         ]);
