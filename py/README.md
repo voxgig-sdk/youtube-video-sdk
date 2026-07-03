@@ -10,7 +10,7 @@ The Python SDK for the YoutubeVideo API — an entity-oriented client following 
 
 ## Install
 ```bash
-pip install youtube-video-sdk
+pip install voxgig-sdk-youtube-video
 ```
 
 Or install from source:

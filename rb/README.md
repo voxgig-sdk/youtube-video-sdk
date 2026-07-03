@@ -10,13 +10,13 @@ The Ruby SDK for the YoutubeVideo API — an entity-oriented client using idioma
 
 ## Install
 ```bash
-gem install youtube-video-sdk
+gem install voxgig-sdk-youtube-video
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "youtube-video-sdk"
+gem "voxgig-sdk-youtube-video"
 ```
 
 Then run:

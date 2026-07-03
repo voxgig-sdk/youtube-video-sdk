@@ -10,7 +10,7 @@ The Lua SDK for the YoutubeVideo API — an entity-oriented client using Lua con
 
 ## Install
 ```bash
-luarocks install youtube-video-sdk
+luarocks install voxgig-sdk-youtube-video
 ```
 
 If the module is not yet published, add the source directory to

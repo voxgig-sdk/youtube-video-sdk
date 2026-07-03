@@ -10,7 +10,7 @@ The PHP SDK for the YoutubeVideo API — an entity-oriented client using PHP con
 
 ## Install
 ```bash
-composer require voxgig/youtube-video-sdk
+composer require voxgig-sdk/youtube-video
 ```
 
 

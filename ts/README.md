@@ -10,7 +10,7 @@ The TypeScript SDK for the YoutubeVideo API — a type-safe, entity-oriented cli
 
 ## Install
 ```bash
-npm install youtube-video
+npm install @voxgig-sdk/youtube-video
 ```
 ## Tutorial: your first API call
 

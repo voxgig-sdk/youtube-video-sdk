@@ -8,12 +8,14 @@ source = {
   dir = "youtube-video-sdk/lua"
 }
 description = {
-  summary = "YoutubeVideo SDK for Lua",
-  license = "MIT"
+  summary = "Unofficial generated Lua SDK for the YouTube Video public API. Not affiliated with or endorsed by the upstream API provider.",
+  homepage = "https://github.com/voxgig-sdk/youtube-video-sdk",
+  issues_url = "https://github.com/voxgig-sdk/youtube-video-sdk/issues",
+  license = "MIT",
+  labels = { "voxgig", "sdk", "generated-sdk", "openapi", "api-client", "youtube-video" }
 }
 dependencies = {
   "lua >= 5.3",
-  "dkjson >= 2.5",
   "dkjson >= 2.5",
 }
 build = {
