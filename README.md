@@ -1,19 +1,8 @@
 # YoutubeVideo SDK
 
-Search YouTube videos by text and get metadata like views, upload date, duration, and descriptions
+YouTube Video API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About YouTube Video API
-
-The YouTube Video API is a small endpoint hosted on [abhi-api.vercel.app](https://abhi-api.vercel.app), a free public-API hub maintained by Abhishek Suresh. It exposes a single text-search endpoint that returns YouTube video metadata for the supplied query.
-
-What you get from the API:
-
-- Video search results for a free-text query
-- Per-video metadata including views, upload date, duration, and description
-
-Operational notes: the upstream service is community-run and has no published authentication, rate-limit, or licence terms. CORS is reported as disabled on the [freepublicapis.com listing](https://freepublicapis.com/youtube-video-api), so browser callers may need a proxy. Treat the endpoint as best-effort and avoid depending on it for production traffic.
 
 ## Try it
 
@@ -47,27 +36,31 @@ gem install youtube-video-sdk
 luarocks install youtube-video-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { YoutubeVideoSDK } from 'youtube-video'
 
-const client = new YoutubeVideoSDK({})
+const client = new YoutubeVideoSDK({
+  apikey: process.env.YOUTUBE-VIDEO_APIKEY,
+})
 
+// Load yts data
+const yts = await client.Yts().load({})
+console.log(yts.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -97,7 +90,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Yts** | YouTube video search results — query with a `text` parameter against `GET /api/search/yts` to receive video metadata such as views, upload date, duration, and description. | `/api/search/yts` |
+| **Yts** |  | `/api/search/yts` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -107,15 +100,17 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from youtubevideo_sdk import YoutubeVideoSDK
 
-client = YoutubeVideoSDK({})
+client = YoutubeVideoSDK({
+    "apikey": os.environ.get("YOUTUBE-VIDEO_APIKEY"),
+})
 
 
 # Load a specific yts
-yts, err = client.Yts(None).load(
-    {"id": "example_id"}, None
-)
+yts, err = client.Yts().load({"id": "example_id"})
+print(yts)
 ```
 
 ### PHP
@@ -124,13 +119,14 @@ yts, err = client.Yts(None).load(
 <?php
 require_once 'youtubevideo_sdk.php';
 
-$client = new YoutubeVideoSDK([]);
+$client = new YoutubeVideoSDK([
+    "apikey" => getenv("YOUTUBE-VIDEO_APIKEY"),
+]);
 
 
 // Load a specific yts
-[$yts, $err] = $client->Yts(null)->load(
-    ["id" => "example_id"], null
-);
+[$yts, $err] = $client->Yts()->load(["id" => "example_id"]);
+print_r($yts);
 ```
 
 ### Golang
@@ -138,8 +134,13 @@ $client = new YoutubeVideoSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/youtube-video-sdk/go"
 
-client := sdk.NewYoutubeVideoSDK(map[string]any{})
+client := sdk.NewYoutubeVideoSDK(map[string]any{
+    "apikey": os.Getenv("YOUTUBE-VIDEO_APIKEY"),
+})
 
+// Load yts data
+yts, err := client.Yts(nil).Load(map[string]any{}, nil)
+fmt.Println(yts)
 ```
 
 ### Ruby
@@ -147,13 +148,14 @@ client := sdk.NewYoutubeVideoSDK(map[string]any{})
 ```ruby
 require_relative "YoutubeVideo_sdk"
 
-client = YoutubeVideoSDK.new({})
+client = YoutubeVideoSDK.new({
+  "apikey" => ENV["YOUTUBE-VIDEO_APIKEY"],
+})
 
 
 # Load a specific yts
-yts, err = client.Yts(nil).load(
-  { "id" => "example_id" }, nil
-)
+yts, err = client.Yts().load({ "id" => "example_id" })
+puts yts
 ```
 
 ### Lua
@@ -161,13 +163,14 @@ yts, err = client.Yts(nil).load(
 ```lua
 local sdk = require("youtube-video_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("YOUTUBE-VIDEO_APIKEY"),
+})
 
 
 -- Load a specific yts
-local yts, err = client:Yts(nil):load(
-  { id = "example_id" }, nil
-)
+local yts, err = client:Yts():load({ id = "example_id" })
+print(yts)
 ```
 
 ## Unit testing in offline mode
@@ -186,25 +189,21 @@ const result = await client.Yts().load({ id: 'test01' })
 ### Python
 
 ```python
-client = YoutubeVideoSDK.test(None, None)
-result, err = client.Yts(None).load(
-    {"id": "test01"}, None
-)
+client = YoutubeVideoSDK.test()
+result, err = client.Yts().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = YoutubeVideoSDK::test(null, null);
-[$result, $err] = $client->Yts(null)->load(
-    ["id" => "test01"], null
-);
+$client = YoutubeVideoSDK::test();
+[$result, $err] = $client->Yts()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Yts(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -213,19 +212,15 @@ result, err := client.Yts(nil).Load(
 ### Ruby
 
 ```ruby
-client = YoutubeVideoSDK.test(nil, nil)
-result, err = client.Yts(nil).load(
-  { "id" => "test01" }, nil
-)
+client = YoutubeVideoSDK.test
+result, err = client.Yts().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Yts(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Yts():load({ id = "test01" })
 ```
 
 ## How it works
@@ -329,10 +324,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the YouTube Video API
-
-- Upstream: [https://abhi-api.vercel.app](https://abhi-api.vercel.app)
 
 ---
 

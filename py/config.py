@@ -15,6 +15,9 @@ def make_config():
         },
         "options": {
             "base": "https://abhi-api.vercel.app",
+            "auth": {
+                "prefix": "Bearer",
+            },
             "headers": {
         "content-type": "application/json",
       },
@@ -26,50 +29,52 @@ def make_config():
       "yts": {
         "fields": [
           {
+            "active": True,
             "name": "code",
             "req": True,
             "type": "`$INTEGER`",
-            "active": True,
             "index$": 0,
           },
           {
+            "active": True,
             "name": "creator",
             "req": False,
             "type": "`$STRING`",
-            "active": True,
             "index$": 1,
           },
           {
+            "active": True,
             "name": "result",
             "req": True,
             "type": "`$OBJECT`",
-            "active": True,
             "index$": 2,
           },
           {
+            "active": True,
             "name": "status",
             "req": True,
             "type": "`$BOOLEAN`",
-            "active": True,
             "index$": 3,
           },
         ],
         "name": "yts",
         "op": {
           "load": {
+            "input": "data",
             "name": "load",
             "points": [
               {
+                "active": True,
                 "args": {
                   "query": [
                     {
+                      "active": True,
                       "example": "heat waves",
                       "kind": "query",
                       "name": "text",
                       "orig": "text",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "active": True,
                     },
                   ],
                 },
@@ -89,11 +94,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "active": True,
                 "index$": 0,
               },
             ],
-            "input": "data",
             "key$": "load",
           },
         },

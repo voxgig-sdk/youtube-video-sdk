@@ -113,6 +113,7 @@ function basicSetup(extra?: any) {
     'YOUTUBE_VIDEO_TEST_YTS_ENTID': idmap,
     'YOUTUBE_VIDEO_TEST_LIVE': 'FALSE',
     'YOUTUBE_VIDEO_TEST_EXPLAIN': 'FALSE',
+    'YOUTUBE_VIDEO_APIKEY': 'NONE',
   })
 
   idmap = env['YOUTUBE_VIDEO_TEST_YTS_ENTID']
@@ -122,6 +123,7 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new YoutubeVideoSDK(merge([
       {
+        apikey: env.YOUTUBE_VIDEO_APIKEY,
       },
       extra
     ]))

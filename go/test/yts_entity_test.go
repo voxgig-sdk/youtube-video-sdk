@@ -117,6 +117,7 @@ func ytsBasicSetup(extra map[string]any) *entityTestSetup {
 		"YOUTUBEVIDEO_TEST_YTS_ENTID": idmap,
 		"YOUTUBEVIDEO_TEST_LIVE":      "FALSE",
 		"YOUTUBEVIDEO_TEST_EXPLAIN":   "FALSE",
+		"YOUTUBEVIDEO_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["YOUTUBEVIDEO_TEST_YTS_ENTID"])
@@ -127,6 +128,7 @@ func ytsBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["YOUTUBEVIDEO_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
+				"apikey": env["YOUTUBEVIDEO_APIKEY"],
 			},
 			extra,
 		})

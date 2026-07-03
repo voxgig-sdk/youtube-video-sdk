@@ -38,6 +38,10 @@ class Config {
   options = {
     base: 'https://abhi-api.vercel.app',
 
+    auth: {
+      prefix: 'Bearer',
+    },
+
     headers: {
       "content-type": "application/json"
     },
@@ -55,50 +59,52 @@ class Config {
     "yts": {
       "fields": [
         {
+          "active": true,
           "name": "code",
           "req": true,
           "type": "`$INTEGER`",
-          "active": true,
           "index$": 0
         },
         {
+          "active": true,
           "name": "creator",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 1
         },
         {
+          "active": true,
           "name": "result",
           "req": true,
           "type": "`$OBJECT`",
-          "active": true,
           "index$": 2
         },
         {
+          "active": true,
           "name": "status",
           "req": true,
           "type": "`$BOOLEAN`",
-          "active": true,
           "index$": 3
         }
       ],
       "name": "yts",
       "op": {
         "load": {
+          "input": "data",
           "name": "load",
           "points": [
             {
+              "active": true,
               "args": {
                 "query": [
                   {
+                    "active": true,
                     "example": "heat waves",
                     "kind": "query",
                     "name": "text",
                     "orig": "text",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ]
               },
@@ -118,11 +124,9 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
               "index$": 0
             }
           ],
-          "input": "data",
           "key$": "load"
         }
       },

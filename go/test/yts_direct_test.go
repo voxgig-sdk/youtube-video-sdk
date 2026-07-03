@@ -105,12 +105,14 @@ func ytsDirectSetup(mockres any) *ytsDirectSetupResult {
 	env := envOverride(map[string]any{
 		"YOUTUBEVIDEO_TEST_YTS_ENTID": map[string]any{},
 		"YOUTUBEVIDEO_TEST_LIVE":    "FALSE",
+		"YOUTUBEVIDEO_APIKEY":       "NONE",
 	})
 
 	live := env["YOUTUBEVIDEO_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
+			"apikey": env["YOUTUBEVIDEO_APIKEY"],
 		}
 		client := sdk.NewYoutubeVideoSDK(mergedOpts)
 

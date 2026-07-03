@@ -78,12 +78,14 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'YOUTUBEVIDEO_TEST_YTS_ENTID': {},
     'YOUTUBEVIDEO_TEST_LIVE': 'FALSE',
+    'YOUTUBEVIDEO_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.YOUTUBEVIDEO_TEST_LIVE
 
   if (live) {
     const client = new YoutubeVideoSDK({
+      apikey: env.YOUTUBEVIDEO_APIKEY,
     })
 
     let idmap: any = env['YOUTUBEVIDEO_TEST_YTS_ENTID']

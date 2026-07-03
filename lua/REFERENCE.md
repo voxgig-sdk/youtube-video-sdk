@@ -30,12 +30,12 @@ Create a new SDK client instance.
 
 ### Static Methods
 
-#### `sdk.test(testopts, sdkopts)`
+#### `sdk.test(testopts?, sdkopts?)`
 
-Create a test client with mock features active. Both arguments may be `nil`.
+Create a test client with mock features active. Both arguments are optional.
 
 ```lua
-local client = sdk.test(nil, nil)
+local client = sdk.test()
 ```
 
 
@@ -103,7 +103,7 @@ local yts = client:Yts(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Yts(nil):load({ id = "yts_id" }, nil)
+local result, err = client:Yts():load({ id = "yts_id" })
 ```
 
 ### Common Methods
