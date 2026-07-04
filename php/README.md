@@ -33,9 +33,10 @@ $client = new YoutubeVideoSDK();
 
 ```php
 try {
-    $result = $client->yts()->load(["id" => "example_id"]);
-    print_r($result);
-} catch (\Exception $err) {
+    // load() returns the bare Yts record (throws on error).
+    $yts = $client->Yts()->load(["id" => "example_id"]);
+    print_r($yts);
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -81,13 +82,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = YoutubeVideoSDK::test();
+$client = YoutubeVideoSDK::test([
+    "entity" => ["yts" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->yts()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$yts = $client->Yts()->load(["id" => "test01"]);
+print_r($yts);
 ```
 
 ### Use a custom fetch function
@@ -226,7 +231,7 @@ API path: `/api/search/yts`
 
 ### Yts
 
-Create an instance: `const yts = client.yts`
+Create an instance: `$yts = $client->Yts();`
 
 #### Operations
 
@@ -245,8 +250,9 @@ Create an instance: `const yts = client.yts`
 
 #### Example: Load
 
-```ts
-const yts = await client.yts.load({ id: 'yts_id' })
+```php
+// load() returns the bare Yts record (throws on error).
+$yts = $client->Yts()->load(["id" => "yts_id"]);
 ```
 
 
@@ -321,7 +327,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$yts = $client->yts();
+$yts = $client->Yts();
 $yts->load(["id" => "example_id"]);
 
 // $yts->dataGet() now returns the loaded yts data

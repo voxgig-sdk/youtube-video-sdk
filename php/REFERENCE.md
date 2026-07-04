@@ -85,7 +85,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## YtsEntity
 
 ```php
-$yts = $client->yts();
+$yts = $client->Yts();
 ```
 
 ### Fields
@@ -104,7 +104,7 @@ $yts = $client->yts();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->yts()->load(["id" => "yts_id"]);
+$result = $client->Yts()->load(["id" => "yts_id"]);
 ```
 
 ### Common Methods

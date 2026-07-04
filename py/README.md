@@ -33,10 +33,12 @@ client = YoutubeVideoSDK()
 
 ### 3. Load a yts
 
+`load()` returns the bare record (a `dict`) and raises on error.
+
 ```python
 try:
-    result = client.yts.load({"id": "example_id"})
-    print(result)
+    yts = client.Yts().load({"id": "example_id"})
+    print(yts)
 except Exception as err:
     print(f"load failed: {err}")
 ```
@@ -84,8 +86,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = YoutubeVideoSDK.test()
 
-result = client.yts.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+yts = client.Yts().load({"id": "test01"})
+# yts contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -221,7 +224,7 @@ API path: `/api/search/yts`
 
 ### Yts
 
-Create an instance: `const yts = client.yts`
+Create an instance: `yts = client.Yts()`
 
 #### Operations
 
@@ -240,8 +243,8 @@ Create an instance: `const yts = client.yts`
 
 #### Example: Load
 
-```ts
-const yts = await client.yts.load({ id: 'yts_id' })
+```python
+yts = client.Yts().load({"id": "yts_id"})
 ```
 
 
@@ -315,7 +318,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-yts = client.yts
+yts = client.Yts()
 yts.load({"id": "example_id"})
 
 # yts.data_get() now returns the loaded yts data

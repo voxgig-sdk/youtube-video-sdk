@@ -86,7 +86,7 @@ same parameters as `direct()`. Raises on error.
 ## YtsEntity
 
 ```ruby
-yts = client.yts
+yts = client.Yts
 ```
 
 ### Fields
@@ -105,7 +105,7 @@ yts = client.yts
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.yts.load({ "id" => "yts_id" })
+result = client.Yts.load({ "id" => "yts_id" })
 ```
 
 ### Common Methods

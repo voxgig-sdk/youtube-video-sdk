@@ -32,8 +32,9 @@ client = YoutubeVideoSDK.new
 
 ```ruby
 begin
-  result = client.yts.load({ "id" => "example_id" })
-  puts result
+  # load returns the bare Yts record (raises on error).
+  yts = client.Yts.load({ "id" => "example_id" })
+  puts yts
 rescue => err
   warn "load failed: #{err}"
 end
@@ -80,13 +81,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = YoutubeVideoSDK.test
+client = YoutubeVideoSDK.test({
+  "entity" => { "yts" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.yts.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+yts = client.Yts.load({ "id" => "test01" })
+puts yts
 ```
 
 ### Use a custom fetch function
@@ -221,7 +226,7 @@ API path: `/api/search/yts`
 
 ### Yts
 
-Create an instance: `const yts = client.yts`
+Create an instance: `yts = client.Yts`
 
 #### Operations
 
@@ -240,8 +245,9 @@ Create an instance: `const yts = client.yts`
 
 #### Example: Load
 
-```ts
-const yts = await client.yts.load({ id: 'yts_id' })
+```ruby
+# load returns the bare Yts record (raises on error).
+yts = client.Yts.load({ "id" => "yts_id" })
 ```
 
 
@@ -316,7 +322,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-yts = client.yts
+yts = client.Yts
 yts.load({ "id" => "example_id" })
 
 # yts.data_get now returns the loaded yts data

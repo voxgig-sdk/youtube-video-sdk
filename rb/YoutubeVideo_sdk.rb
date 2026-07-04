@@ -208,13 +208,7 @@ class YoutubeVideoSDK
   end
 
 
-  # Idiomatic facade: client.yts.list / client.yts.load({ "id" => ... })
-  def yts
-    require_relative 'entity/yts_entity'
-    @yts ||= YtsEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.yts instead.
+  # Canonical facade: client.Yts.list / client.Yts.load({ "id" => ... })
   def Yts(data = nil)
     require_relative 'entity/yts_entity'
     YtsEntity.new(self, data)

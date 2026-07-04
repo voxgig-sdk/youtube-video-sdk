@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:yts():list() / client:yts():load({ id = ... })
-function YoutubeVideoSDK:yts(data)
+-- Idiomatic facade: client:Yts():list() / client:Yts():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function YoutubeVideoSDK:Yts(data)
   local EntityMod = require("entity.yts_entity")
   if data == nil then
     if self._yts == nil then
@@ -253,12 +254,6 @@ function YoutubeVideoSDK:yts(data)
     end
     return self._yts
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:yts() instead.
-function YoutubeVideoSDK:Yts(data)
-  local EntityMod = require("entity.yts_entity")
   return EntityMod.new(self, data)
 end
 

@@ -220,25 +220,15 @@ class YoutubeVideoSDK:
         }
 
 
-    @property
-    def yts(self):
-        """Idiomatic facade: client.yts.list() / client.yts.load({"id": ...})."""
-        from entity.yts_entity import YtsEntity
-        cached = getattr(self, "_yts", None)
-        if cached is None:
-            cached = YtsEntity(self, None)
-            self._yts = cached
-        return cached
-
-    def Yts(self, data=None):
-        # Deprecated: use client.yts instead.
+    def Yts(self, data=None) -> "YtsEntity":
+        """Entity factory: client.Yts().list({}) / client.Yts().load({"id": ...})."""
         from entity.yts_entity import YtsEntity
         return YtsEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "YoutubeVideoSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -258,3 +248,9 @@ class YoutubeVideoSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.yts_entity import YtsEntity

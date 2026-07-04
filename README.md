@@ -26,9 +26,9 @@ import { YoutubeVideoSDK } from '@voxgig-sdk/youtube-video'
 
 const client = new YoutubeVideoSDK()
 
-// Load yts data
-const yts = await client.yts.load({})
-console.log(yts.data)
+// Load yts data (returns a Yts)
+const yts = await client.Yts().load()
+console.log(yts)
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -84,8 +84,8 @@ from youtubevideo_sdk import YoutubeVideoSDK
 client = YoutubeVideoSDK()
 
 
-# Load a specific yts
-yts = client.yts.load({"id": "example_id"})
+# Load a specific yts (returns the record, raises on error)
+yts = client.Yts().load({"id": "example_id"})
 print(yts)
 ```
 
@@ -98,8 +98,8 @@ require_once 'youtubevideo_sdk.php';
 $client = new YoutubeVideoSDK();
 
 
-// Load a specific yts
-$yts = $client->yts()->load(["id" => "example_id"]);
+// Load a specific yts (returns the bare record; throws on error)
+$yts = $client->Yts()->load(["id" => "example_id"]);
 print_r($yts);
 ```
 
@@ -123,8 +123,8 @@ require_relative "YoutubeVideo_sdk"
 client = YoutubeVideoSDK.new
 
 
-# Load a specific yts
-yts = client.yts.load({ "id" => "example_id" })
+# Load a specific yts (returns the bare record; raises on error)
+yts = client.Yts.load({ "id" => "example_id" })
 puts yts
 ```
 
@@ -137,7 +137,7 @@ local client = sdk.new()
 
 
 -- Load a specific yts
-local yts, err = client:yts():load({ id = "example_id" })
+local yts, err = client:Yts():load({ id = "example_id" })
 print(yts)
 ```
 
@@ -150,22 +150,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = YoutubeVideoSDK.test()
-const result = await client.yts.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const yts = await client.Yts().load({ id: 'test01' })
+// yts is a bare Yts populated with mock data
+console.log(yts)
 ```
 
 ### Python
 
 ```python
 client = YoutubeVideoSDK.test()
-result = client.yts.load({"id": "test01"})
+yts = client.Yts().load({"id": "test01"})
+print(yts)
 ```
 
 ### PHP
 
 ```php
-$client = YoutubeVideoSDK::test();
-$result = $client->yts()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = YoutubeVideoSDK::test([
+    "entity" => ["yts" => ["test01" => ["id" => "test01"]]],
+]);
+$yts = $client->Yts()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -180,15 +185,18 @@ result, err := client.Yts(nil).Load(
 ### Ruby
 
 ```ruby
-client = YoutubeVideoSDK.test
-result = client.yts.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = YoutubeVideoSDK.test({
+  "entity" => { "yts" => { "test01" => { "id" => "test01" } } },
+})
+yts = client.Yts.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:yts():load({ id = "test01" })
+local result, err = client:Yts():load({ id = "test01" })
 ```
 
 ## How it works
@@ -236,6 +244,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

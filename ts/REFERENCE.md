@@ -109,7 +109,7 @@ Alias for `YoutubeVideoSDK.test()`.
 ## YtsEntity
 
 ```ts
-const yts = client.yts
+const yts = client.Yts()
 ```
 
 ### Fields
@@ -128,7 +128,7 @@ const yts = client.yts
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.yts.load({ id: 'yts_id' })
+const result = await client.Yts().load({ id: 'yts_id' })
 ```
 
 ### Common Methods

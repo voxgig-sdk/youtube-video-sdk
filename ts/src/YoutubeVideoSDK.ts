@@ -204,14 +204,7 @@ class YoutubeVideoSDK {
 
 
 
-  _yts?: YtsEntity
-
-  // Idiomatic facade: `client.yts.list()` / `client.yts.load({ id })`.
-  get yts(): YtsEntity {
-    return (this._yts ??= new YtsEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.yts` instead. */
+  // Entity access: `client.Yts().list()` / `client.Yts().load({ id })`.
   Yts(data?: any) {
     const self = this
     return new YtsEntity(self,data)

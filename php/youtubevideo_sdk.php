@@ -233,10 +233,10 @@ class YoutubeVideoSDK
 
     private $_yts = null;
 
-    // Idiomatic facade: $client->yts()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Yts() (PHP method
-    // names are case-insensitive).
-    public function yts($data = null)
+    // Canonical facade: $client->Yts()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->yts()
+    // resolves here too.
+    public function Yts($data = null)
     {
         require_once __DIR__ . '/entity/yts_entity.php';
         if ($data === null) {

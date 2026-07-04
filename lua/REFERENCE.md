@@ -83,7 +83,7 @@ same parameters as `direct()`.
 ## YtsEntity
 
 ```lua
-local yts = client:yts(nil)
+local yts = client:Yts(nil)
 ```
 
 ### Fields
@@ -102,7 +102,7 @@ local yts = client:yts(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:yts():load({ id = "yts_id" })
+local result, err = client:Yts():load({ id = "yts_id" })
 ```
 
 ### Common Methods

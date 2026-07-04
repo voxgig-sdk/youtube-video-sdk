@@ -34,9 +34,9 @@ local client = sdk.new()
 ### 3. Load a yts
 
 ```lua
-local result, err = client:yts():load({ id = "example_id" })
+local yts, err = client:Yts():load({ id = "example_id" })
 if err then error(err) end
-print(result)
+print(yts)
 ```
 
 
@@ -82,8 +82,8 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:yts():load({ id = "test01" })
--- result contains mock response data
+local result, err = client:Yts():load({ id = "test01" })
+-- result is the loaded data; err is set on failure
 ```
 
 ### Use a custom fetch function
@@ -183,17 +183,22 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return `(any, err)`. The first value is a
-`table` with these keys:
+Entity operations return `(value, err)`. The `value` is the operation's
+data **directly** — there is no wrapper:
 
-| Key | Type | Description |
-| --- | --- | --- |
-| `ok` | `boolean` | `true` if the HTTP status is 2xx. |
-| `status` | `number` | HTTP status code. |
-| `headers` | `table` | Response headers. |
-| `data` | `any` | Parsed JSON response body. |
+| Operation | `value` |
+| --- | --- |
+| `load` / `create` / `update` / `remove` | the entity record (a `table`) |
+| `list` | an array (`table`) of entity records |
 
-On error, `ok` is `false` and `err` contains the error value.
+Check `err` first (it is non-`nil` on failure), then use `value`:
+
+    local yts, err = client:Yts():load({ id = "example_id" })
+    if err then error(err) end
+    -- yts is the loaded record
+
+Only `direct()` returns a response envelope — a `table` with `ok`,
+`status`, `headers`, and `data` keys.
 
 ### Entities
 
@@ -217,7 +222,7 @@ API path: `/api/search/yts`
 
 ### Yts
 
-Create an instance: `const yts = client.yts`
+Create an instance: `local yts = client:Yts(nil)`
 
 #### Operations
 
@@ -236,8 +241,8 @@ Create an instance: `const yts = client.yts`
 
 #### Example: Load
 
-```ts
-const yts = await client.yts.load({ id: 'yts_id' })
+```lua
+local yts, err = client:Yts():load({ id = "yts_id" })
 ```
 
 
@@ -312,7 +317,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local yts = client:yts()
+local yts = client:Yts()
 yts:load({ id = "example_id" })
 
 -- yts:data_get() now returns the loaded yts data
