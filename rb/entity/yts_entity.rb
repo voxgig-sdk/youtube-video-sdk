@@ -45,6 +45,7 @@ class YtsEntity
     end
   end
 
+  # @return [Yts, Hash] the current Yts data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,12 +58,18 @@ class YtsEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of Yts fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
   end
 
   
+  # Load a single Yts.
+  #
+  # @param reqmatch [YtsLoadMatch, Hash, nil] match criteria (id/query fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Yts, Hash] the loaded Yts; raises YoutubeVideoError on failure
   def load(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

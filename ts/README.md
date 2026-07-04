@@ -9,9 +9,12 @@ The TypeScript SDK for the YoutubeVideo API — a type-safe, entity-oriented cli
 
 
 ## Install
-```bash
-npm install @voxgig-sdk/youtube-video
-```
+This package is not yet published to npm. Install it from the GitHub
+release tag (`ts/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/youtube-video-sdk/releases](https://github.com/voxgig-sdk/youtube-video-sdk/releases)
+
+
 ## Tutorial: your first API call
 
 This tutorial walks through creating a client, listing entities, and
@@ -20,17 +23,15 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { YoutubeVideoSDK } from 'youtube-video'
+import { YoutubeVideoSDK } from '@voxgig-sdk/youtube-video'
 
-const client = new YoutubeVideoSDK({
-  apikey: process.env.YOUTUBE-VIDEO_APIKEY,
-})
+const client = new YoutubeVideoSDK()
 ```
 
 ### 3. Load a yts
 
 ```ts
-const result = await client.Yts().load({ id: 'example_id' })
+const result = await client.yts.load({ id: 'example_id' })
 
 if (result.ok) {
   console.log(result.data)
@@ -79,7 +80,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = YoutubeVideoSDK.test()
 
-const result = await client.Planet().load({ id: 'test01' })
+const result = await client.yts.load({ id: 'test01' })
 // result.ok === true
 // result.data contains mock response data
 ```
@@ -87,7 +88,7 @@ const result = await client.Planet().load({ id: 'test01' })
 You can also use the instance method:
 
 ```ts
-const client = new YoutubeVideoSDK({ apikey: '...' })
+const client = new YoutubeVideoSDK()
 const testClient = client.tester()
 ```
 
@@ -96,7 +97,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Planet()
+const entity = client.yts
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -123,7 +124,6 @@ const logger = {
 }
 
 const client = new YoutubeVideoSDK({
-  apikey: '...',
   extend: [logger],
 })
 ```
@@ -133,8 +133,7 @@ const client = new YoutubeVideoSDK({
 Create a `.env.local` file at the project root:
 
 ```
-YOUTUBE-VIDEO_TEST_LIVE=TRUE
-YOUTUBE-VIDEO_APIKEY=<your-key>
+YOUTUBE_VIDEO_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -152,7 +151,6 @@ cd ts && npm test
 
 ```ts
 new YoutubeVideoSDK(options?: {
-  apikey?: string
   base?: string
   prefix?: string
   suffix?: string
@@ -163,7 +161,6 @@ new YoutubeVideoSDK(options?: {
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -269,7 +266,7 @@ API path: `/api/search/yts`
 
 ### Yts
 
-Create an instance: `const yts = client.Yts()`
+Create an instance: `const yts = client.yts`
 
 #### Operations
 
@@ -289,7 +286,7 @@ Create an instance: `const yts = client.Yts()`
 #### Example: Load
 
 ```ts
-const yts = await client.Yts().load({ id: 'yts_id' })
+const yts = await client.yts.load({ id: 'yts_id' })
 ```
 
 
@@ -350,7 +347,7 @@ youtube-video/
 Import the SDK from the package root:
 
 ```ts
-import { YoutubeVideoSDK } from 'youtube-video'
+import { YoutubeVideoSDK } from '@voxgig-sdk/youtube-video'
 ```
 
 ### Entity state
@@ -360,11 +357,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const moon = client.Moon()
-await moon.load({ planet_id: 'earth', id: 'luna' })
+const yts = client.yts
+await yts.load({ id: "example_id" })
 
-// moon.data() now returns the loaded moon data
-// moon.match() returns { planet_id: 'earth', id: 'luna' }
+// yts.data() now returns the loaded yts data
+// yts.match() returns { id: "example_id" }
 ```
 
 Call `make()` to create a fresh instance with the same configuration

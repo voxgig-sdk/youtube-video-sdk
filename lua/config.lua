@@ -14,9 +14,6 @@ local function make_config()
     },
     options = {
       base = "https://abhi-api.vercel.app",
-      auth = {
-        prefix = "Bearer",
-      },
       headers = {
         ["content-type"] = "application/json",
       },

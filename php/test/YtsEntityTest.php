@@ -49,8 +49,7 @@ class YtsEntityTest extends TestCase
         // LOAD
         $yts_ref01_ent = $client->Yts(null);
         $yts_ref01_match_dt0 = [];
-        [$yts_ref01_data_dt0_loaded, $err] = $yts_ref01_ent->load($yts_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $yts_ref01_data_dt0_loaded = $yts_ref01_ent->load($yts_ref01_match_dt0, null);
         $this->assertNotNull($yts_ref01_data_dt0_loaded);
 
     }
@@ -85,7 +84,6 @@ function yts_basic_setup($extra)
         "YOUTUBEVIDEO_TEST_YTS_ENTID" => $idmap,
         "YOUTUBEVIDEO_TEST_LIVE" => "FALSE",
         "YOUTUBEVIDEO_TEST_EXPLAIN" => "FALSE",
-        "YOUTUBEVIDEO_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -97,7 +95,6 @@ function yts_basic_setup($extra)
     if ($env["YOUTUBEVIDEO_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["YOUTUBEVIDEO_APIKEY"],
             ],
             $extra ?? [],
         ]);

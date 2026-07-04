@@ -49,8 +49,7 @@ class TestYtsEntity:
         # LOAD
         yts_ref01_ent = client.Yts(None)
         yts_ref01_match_dt0 = {}
-        yts_ref01_data_dt0_loaded, err = yts_ref01_ent.load(yts_ref01_match_dt0, None)
-        assert err is None
+        yts_ref01_data_dt0_loaded = yts_ref01_ent.load(yts_ref01_match_dt0, None)
         assert yts_ref01_data_dt0_loaded is not None
 
 
@@ -91,7 +90,6 @@ def _yts_basic_setup(extra):
         "YOUTUBEVIDEO_TEST_YTS_ENTID": idmap,
         "YOUTUBEVIDEO_TEST_LIVE": "FALSE",
         "YOUTUBEVIDEO_TEST_EXPLAIN": "FALSE",
-        "YOUTUBEVIDEO_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,7 +100,6 @@ def _yts_basic_setup(extra):
     if env.get("YOUTUBEVIDEO_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("YOUTUBEVIDEO_APIKEY"),
             },
             extra or {},
         ])

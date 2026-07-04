@@ -245,6 +245,9 @@ func (sdk *YoutubeVideoSDK) Direct(fetchargs map[string]any) (map[string]any, er
 }
 
 
+// Yts returns a Yts entity bound to this client.
+// Idiomatic usage: client.Yts(nil).List(nil, nil) or
+// client.Yts(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *YoutubeVideoSDK) Yts(data map[string]any) YoutubeVideoEntity {
 	return NewYtsEntityFunc(sdk, data)
 }

@@ -42,8 +42,7 @@ class YtsEntityTest < Minitest::Test
     # LOAD
     yts_ref01_ent = client.Yts(nil)
     yts_ref01_match_dt0 = {}
-    yts_ref01_data_dt0_loaded, err = yts_ref01_ent.load(yts_ref01_match_dt0, nil)
-    assert_nil err
+    yts_ref01_data_dt0_loaded = yts_ref01_ent.load(yts_ref01_match_dt0, nil)
     assert !yts_ref01_data_dt0_loaded.nil?
 
   end
@@ -82,7 +81,6 @@ def yts_basic_setup(extra)
     "YOUTUBEVIDEO_TEST_YTS_ENTID" => idmap,
     "YOUTUBEVIDEO_TEST_LIVE" => "FALSE",
     "YOUTUBEVIDEO_TEST_EXPLAIN" => "FALSE",
-    "YOUTUBEVIDEO_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -94,7 +92,6 @@ def yts_basic_setup(extra)
   if env["YOUTUBEVIDEO_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["YOUTUBEVIDEO_APIKEY"],
       },
       extra || {},
     ])

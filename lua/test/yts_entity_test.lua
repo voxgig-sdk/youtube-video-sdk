@@ -91,7 +91,6 @@ function yts_basic_setup(extra)
     ["YOUTUBEVIDEO_TEST_YTS_ENTID"] = idmap,
     ["YOUTUBEVIDEO_TEST_LIVE"] = "FALSE",
     ["YOUTUBEVIDEO_TEST_EXPLAIN"] = "FALSE",
-    ["YOUTUBEVIDEO_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -103,7 +102,6 @@ function yts_basic_setup(extra)
   if env["YOUTUBEVIDEO_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
-        apikey = env["YOUTUBEVIDEO_APIKEY"],
       },
       extra or {},
     })

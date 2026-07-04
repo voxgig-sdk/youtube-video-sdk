@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Yts,
+  YtsLoadMatch,
+} from '../YoutubeVideoTypes'
 
 // TODO: needs Entity superclass
-class YtsEntity extends YoutubeVideoEntityBase {
+class YtsEntity extends YoutubeVideoEntityBase<Yts> {
 
   constructor(client: YoutubeVideoSDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +36,7 @@ class YtsEntity extends YoutubeVideoEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: YtsLoadMatch, ctrl?: Control): Promise<Yts> {
 
     const utility = this._utility
 
@@ -136,7 +140,9 @@ class YtsEntity extends YoutubeVideoEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Yts> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

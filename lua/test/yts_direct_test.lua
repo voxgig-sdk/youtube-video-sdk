@@ -68,14 +68,12 @@ function yts_direct_setup(mockres)
   local env = runner.env_override({
     ["YOUTUBEVIDEO_TEST_YTS_ENTID"] = {},
     ["YOUTUBEVIDEO_TEST_LIVE"] = "FALSE",
-    ["YOUTUBEVIDEO_APIKEY"] = "NONE",
   })
 
   local live = env["YOUTUBEVIDEO_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
-      apikey = env["YOUTUBEVIDEO_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {

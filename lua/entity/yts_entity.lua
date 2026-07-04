@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch YtsLoadMatch
+---@param ctrl? table
+---@return Yts
+---@return string? err
 function YtsEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({
