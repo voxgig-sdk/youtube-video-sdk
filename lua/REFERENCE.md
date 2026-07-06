@@ -90,10 +90,10 @@ local yts = client:Yts(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `code` | ``$INTEGER`` | Yes |  |
-| `creator` | ``$STRING`` | No |  |
-| `result` | ``$OBJECT`` | Yes |  |
-| `status` | ``$BOOLEAN`` | Yes |  |
+| `code` | `number` | Yes |  |
+| `creator` | `string` | No |  |
+| `result` | `table` | Yes |  |
+| `status` | `boolean` | Yes |  |
 
 ### Operations
 
@@ -102,7 +102,7 @@ local yts = client:Yts(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Yts():load({ id = "yts_id" })
+local result, err = client:Yts():load()
 ```
 
 ### Common Methods

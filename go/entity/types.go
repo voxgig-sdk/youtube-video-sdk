@@ -16,8 +16,7 @@ type Yts struct {
 	Status bool `json:"status"`
 }
 
-// YtsLoadMatch mirrors the yts fields as an all-optional match
-// filter (Go analog of Partial<Yts>).
+// YtsLoadMatch is the typed request payload for Yts.LoadTyped.
 type YtsLoadMatch struct {
 	Code *int `json:"code,omitempty"`
 	Creator *string `json:"creator,omitempty"`

@@ -116,10 +116,10 @@ const yts = client.Yts()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `code` | ``$INTEGER`` | Yes |  |
-| `creator` | ``$STRING`` | No |  |
-| `result` | ``$OBJECT`` | Yes |  |
-| `status` | ``$BOOLEAN`` | Yes |  |
+| `code` | `number` | Yes |  |
+| `creator` | `string` | No |  |
+| `result` | `Record<string, any>` | Yes |  |
+| `status` | `boolean` | Yes |  |
 
 ### Operations
 
@@ -128,7 +128,7 @@ const yts = client.Yts()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Yts().load({ id: 'yts_id' })
+const result = await client.Yts().load()
 ```
 
 ### Common Methods

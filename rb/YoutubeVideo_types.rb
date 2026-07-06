@@ -29,7 +29,7 @@ Yts = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Yts#load (any subset of Yts fields).
+# Request payload for Yts#load.
 #
 # @!attribute [rw] code
 #   @return [Integer, nil]

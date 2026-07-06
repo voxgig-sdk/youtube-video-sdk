@@ -221,7 +221,7 @@ class YoutubeVideoSDK:
 
 
     def Yts(self, data=None) -> "YtsEntity":
-        """Entity factory: client.Yts().list({}) / client.Yts().load({"id": ...})."""
+        """Entity factory: client.Yts().list() / client.Yts().load({"id": ...})."""
         from entity.yts_entity import YtsEntity
         return YtsEntity(self, data)
 

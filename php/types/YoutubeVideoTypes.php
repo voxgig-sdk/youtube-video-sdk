@@ -21,7 +21,7 @@ class Yts
     public bool $status;
 }
 
-/** Match filter for Yts#load (any subset of Yts fields). */
+/** Request payload for Yts#load. */
 class YtsLoadMatch
 {
     public ?int $code = null;

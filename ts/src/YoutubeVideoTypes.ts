@@ -12,5 +12,10 @@ export interface Yts {
   status: boolean
 }
 
-export type YtsLoadMatch = Partial<Yts>
+export interface YtsLoadMatch {
+  code?: number
+  creator?: string
+  result?: Record<string, any>
+  status?: boolean
+}
 

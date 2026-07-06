@@ -8,7 +8,7 @@ Complete API reference for the YoutubeVideo Python SDK.
 ### Constructor
 
 ```python
-from youtube-video_sdk import YoutubeVideoSDK
+from youtubevideo_sdk import YoutubeVideoSDK
 
 client = YoutubeVideoSDK(options)
 ```
@@ -87,10 +87,10 @@ yts = client.Yts()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `code` | ``$INTEGER`` | Yes |  |
-| `creator` | ``$STRING`` | No |  |
-| `result` | ``$OBJECT`` | Yes |  |
-| `status` | ``$BOOLEAN`` | Yes |  |
+| `code` | `int` | Yes |  |
+| `creator` | `str` | No |  |
+| `result` | `dict` | Yes |  |
+| `status` | `bool` | Yes |  |
 
 ### Operations
 
@@ -99,7 +99,7 @@ yts = client.Yts()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Yts().load({"id": "yts_id"})
+result = client.Yts().load()
 ```
 
 ### Common Methods

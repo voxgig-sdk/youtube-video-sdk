@@ -97,10 +97,10 @@ yts := client.Yts(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `code` | ``$INTEGER`` | Yes |  |
-| `creator` | ``$STRING`` | No |  |
-| `result` | ``$OBJECT`` | Yes |  |
-| `status` | ``$BOOLEAN`` | Yes |  |
+| `code` | `int` | Yes |  |
+| `creator` | `string` | No |  |
+| `result` | `map[string]any` | Yes |  |
+| `status` | `bool` | Yes |  |
 
 ### Operations
 
@@ -109,7 +109,7 @@ yts := client.Yts(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.Yts(nil).Load(map[string]any{"id": "yts_id"}, nil)
+result, err := client.Yts(nil).Load(nil, nil)
 ```
 
 ### Common Methods

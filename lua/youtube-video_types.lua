@@ -13,6 +13,10 @@
 ---@field status boolean
 
 ---@class YtsLoadMatch
+---@field code? number
+---@field creator? string
+---@field result? table
+---@field status? boolean
 
 local M = {}
 

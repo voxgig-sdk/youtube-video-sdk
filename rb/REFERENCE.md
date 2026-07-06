@@ -8,7 +8,7 @@ Complete API reference for the YoutubeVideo Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'youtube-video_sdk'
+require_relative 'YoutubeVideo_sdk'
 
 client = YoutubeVideoSDK.new(options)
 ```
@@ -93,10 +93,10 @@ yts = client.Yts
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `code` | ``$INTEGER`` | Yes |  |
-| `creator` | ``$STRING`` | No |  |
-| `result` | ``$OBJECT`` | Yes |  |
-| `status` | ``$BOOLEAN`` | Yes |  |
+| `code` | `Integer` | Yes |  |
+| `creator` | `String` | No |  |
+| `result` | `Hash` | Yes |  |
+| `status` | `Boolean` | Yes |  |
 
 ### Operations
 
@@ -105,7 +105,7 @@ yts = client.Yts
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.Yts.load({ "id" => "yts_id" })
+result = client.Yts.load()
 ```
 
 ### Common Methods
