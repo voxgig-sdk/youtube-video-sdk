@@ -16,9 +16,9 @@ main: {
           url: "https://abhi-api.vercel.app"
         }
       ]
+      summary: "This API provides data related to YouTube videos, including details such as views, upload date, duration, and descriptions."
       title: "YouTube Video API"
       version: "1.0.0"
+      website: "https://abhi-api.vercel.app"
     }
   }
-}
-

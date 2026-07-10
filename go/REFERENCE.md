@@ -91,6 +91,7 @@ same parameters as `Direct()`.
 
 ```go
 yts := client.Yts(nil)
+fmt.Println(yts.GetName()) // "yts"
 ```
 
 ### Fields
@@ -110,6 +111,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.Yts(nil).Load(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods

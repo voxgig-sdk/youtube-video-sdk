@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -231,14 +228,17 @@
           "url": "https://freepublicapis.com/youtube-video-api"
         },
         "description": "This API provides data related to YouTube videos, including details such as views, upload date, duration, and descriptions. It allows developers to fetch comprehensive information about specific videos from the platform.",
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Production server",
             "url": "https://abhi-api.vercel.app"
           }
         ],
+        "summary": "This API provides data related to YouTube videos, including details such as views, upload date, duration, and descriptions.",
         "title": "YouTube Video API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://abhi-api.vercel.app"
       },
       "option": {},
       "target": {
@@ -291,6 +291,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -341,6 +344,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
