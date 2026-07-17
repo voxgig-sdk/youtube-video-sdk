@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- YoutubeVideo SDK exists test
 
 local sdk = require("youtube-video_sdk")
 
