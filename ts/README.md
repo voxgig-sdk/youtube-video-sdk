@@ -121,7 +121,8 @@ Create a mock client for unit testing — no server required:
 const client = YoutubeVideoSDK.test()
 
 const yts = await client.Yts().load()
-// yts is a bare entity populated with mock response data
+// yts is the entity, populated with mock response data
+// — call yts.data() for the record itself
 console.log(yts)
 ```
 
@@ -284,10 +285,15 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `code` |  |
-| `creator` |  |
-| `result` |  |
-| `status` |  |
+| `channel` |  |
+| `description` |  |
+| `duration` |  |
+| `thumbnail` |  |
+| `title` |  |
+| `type` |  |
+| `uploaded` |  |
+| `url` |  |
+| `views` |  |
 
 Operations: load.
 
@@ -312,10 +318,15 @@ Create an instance: `const yts = client.Yts()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `code` | `number` |  |
-| `creator` | `string` |  |
-| `result` | `Record<string, any>` |  |
-| `status` | `boolean` |  |
+| `channel` | `string` |  |
+| `description` | `string` |  |
+| `duration` | `string` |  |
+| `thumbnail` | `string` |  |
+| `title` | `string` |  |
+| `type` | `string` |  |
+| `uploaded` | `string` |  |
+| `url` | `string` |  |
+| `views` | `number` |  |
 
 #### Example: Load
 

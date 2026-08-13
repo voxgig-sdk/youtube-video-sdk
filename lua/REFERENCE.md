@@ -90,10 +90,15 @@ local yts = client:Yts(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `code` | `number` | Yes |  |
-| `creator` | `string` | No |  |
-| `result` | `table` | Yes |  |
-| `status` | `boolean` | Yes |  |
+| `channel` | `string` | Yes |  |
+| `description` | `string` | Yes |  |
+| `duration` | `string` | Yes |  |
+| `thumbnail` | `string` | Yes |  |
+| `title` | `string` | Yes |  |
+| `type` | `string` | Yes |  |
+| `uploaded` | `string` | Yes |  |
+| `url` | `string` | Yes |  |
+| `views` | `number` | Yes |  |
 
 ### Operations
 

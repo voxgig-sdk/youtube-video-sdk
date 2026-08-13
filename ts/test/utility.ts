@@ -62,8 +62,8 @@ function makeCtrl(explain: boolean) {
 // Overrides configuration values with environment variables if available
 function envOverride(m: Record<string, any>) {
   if (
-    'TRUE' === process.env.YOUTUBEVIDEO_TEST_LIVE ||
-    'TRUE' === process.env.YOUTUBEVIDEO_TEST_OVERRIDE
+    'TRUE' === process.env.YOUTUBE_VIDEO_TEST_LIVE ||
+    'TRUE' === process.env.YOUTUBE_VIDEO_TEST_OVERRIDE
   ) {
     Object.entries(m).map(n => {
       let envval = process.env[n[0]]
@@ -74,7 +74,7 @@ function envOverride(m: Record<string, any>) {
     })
   }
 
-  m.YOUTUBEVIDEO_TEST_EXPLAIN = process.env.YOUTUBEVIDEO_TEST_EXPLAIN || m.YOUTUBEVIDEO_TEST_EXPLAIN
+  m.YOUTUBE_VIDEO_TEST_EXPLAIN = process.env.YOUTUBE_VIDEO_TEST_EXPLAIN || m.YOUTUBE_VIDEO_TEST_EXPLAIN
 
   return m
 }

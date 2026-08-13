@@ -258,10 +258,15 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"code"` |  |
-| `"creator"` |  |
-| `"result"` |  |
-| `"status"` |  |
+| `"channel"` |  |
+| `"description"` |  |
+| `"duration"` |  |
+| `"thumbnail"` |  |
+| `"title"` |  |
+| `"type"` |  |
+| `"uploaded"` |  |
+| `"url"` |  |
+| `"views"` |  |
 
 Operations: Load.
 
@@ -286,10 +291,15 @@ Create an instance: `yts := client.Yts(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `code` | `int` |  |
-| `creator` | `string` |  |
-| `result` | `map[string]any` |  |
-| `status` | `bool` |  |
+| `channel` | `string` |  |
+| `description` | `string` |  |
+| `duration` | `string` |  |
+| `thumbnail` | `string` |  |
+| `title` | `string` |  |
+| `type` | `string` |  |
+| `uploaded` | `string` |  |
+| `url` | `string` |  |
+| `views` | `int` |  |
 
 #### Example: Load
 

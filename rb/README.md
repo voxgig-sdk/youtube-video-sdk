@@ -34,7 +34,7 @@ client = YoutubeVideoSDK.new
 
 ```ruby
 begin
-  # load returns the bare Yts record (raises on error).
+  # load returns the ENTITY — call data_get for the Yts record (raises on error).
   yts = client.Yts.load()
   puts yts
 rescue => err
@@ -117,7 +117,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = YoutubeVideoSDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 yts = client.Yts.load()
 puts yts
 ```
@@ -234,10 +235,15 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `code` |  |
-| `creator` |  |
-| `result` |  |
-| `status` |  |
+| `channel` |  |
+| `description` |  |
+| `duration` |  |
+| `thumbnail` |  |
+| `title` |  |
+| `type` |  |
+| `uploaded` |  |
+| `url` |  |
+| `views` |  |
 
 Operations: Load.
 
@@ -262,15 +268,20 @@ Create an instance: `yts = client.Yts`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `code` | `Integer` |  |
-| `creator` | `String` |  |
-| `result` | `Hash` |  |
-| `status` | `Boolean` |  |
+| `channel` | `String` |  |
+| `description` | `String` |  |
+| `duration` | `String` |  |
+| `thumbnail` | `String` |  |
+| `title` | `String` |  |
+| `type` | `String` |  |
+| `uploaded` | `String` |  |
+| `url` | `String` |  |
+| `views` | `Integer` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare Yts record (raises on error).
+# load returns the ENTITY — call data_get for the Yts record (raises on error).
 yts = client.Yts.load()
 ```
 

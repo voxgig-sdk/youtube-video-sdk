@@ -87,10 +87,15 @@ yts = client.Yts()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `code` | `int` | Yes |  |
-| `creator` | `str` | No |  |
-| `result` | `dict` | Yes |  |
-| `status` | `bool` | Yes |  |
+| `channel` | `str` | Yes |  |
+| `description` | `str` | Yes |  |
+| `duration` | `str` | Yes |  |
+| `thumbnail` | `str` | Yes |  |
+| `title` | `str` | Yes |  |
+| `type` | `str` | Yes |  |
+| `uploaded` | `str` | Yes |  |
+| `url` | `str` | Yes |  |
+| `views` | `int` | Yes |  |
 
 ### Operations
 

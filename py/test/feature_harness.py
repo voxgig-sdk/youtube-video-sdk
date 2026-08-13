@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import YoutubeVideoControl
-from core.error import YoutubeVideoError
-from core.result import YoutubeVideoResult
-from core.spec import YoutubeVideoSpec
+from youtubevideo_sdk.config import make_config
+from youtubevideo_sdk.features import _make_feature
+from youtubevideo_sdk.core.control import YoutubeVideoControl
+from youtubevideo_sdk.core.error import YoutubeVideoError
+from youtubevideo_sdk.core.result import YoutubeVideoResult
+from youtubevideo_sdk.core.spec import YoutubeVideoSpec
 
 
 # True when this SDK was generated with the named feature.

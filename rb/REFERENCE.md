@@ -93,10 +93,15 @@ yts = client.Yts
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `code` | `Integer` | Yes |  |
-| `creator` | `String` | No |  |
-| `result` | `Hash` | Yes |  |
-| `status` | `Boolean` | Yes |  |
+| `channel` | `String` | Yes |  |
+| `description` | `String` | Yes |  |
+| `duration` | `String` | Yes |  |
+| `thumbnail` | `String` | Yes |  |
+| `title` | `String` | Yes |  |
+| `type` | `String` | Yes |  |
+| `uploaded` | `String` | Yes |  |
+| `url` | `String` | Yes |  |
+| `views` | `Integer` | Yes |  |
 
 ### Operations
 

@@ -2,24 +2,39 @@
   "existing": {
     "yts": {
       "YTS00": {
-        "code": "s28",
-        "creator": "s29",
-        "result": {},
-        "status": false,
+        "channel": "s5a",
+        "description": "s5b",
+        "duration": "s5c",
+        "thumbnail": "s5d",
+        "title": "s5e",
+        "type": "s5f",
+        "uploaded": "s60",
+        "url": "s61",
+        "views": "s62",
         "id": "YTS00"
       },
       "YTS01": {
-        "code": "s50",
-        "creator": "s51",
-        "result": {},
-        "status": false,
+        "channel": "sb4",
+        "description": "sb5",
+        "duration": "sb6",
+        "thumbnail": "sb7",
+        "title": "sb8",
+        "type": "sb9",
+        "uploaded": "sba",
+        "url": "sbb",
+        "views": "sbc",
         "id": "YTS01"
       },
       "YTS02": {
-        "code": "s78",
-        "creator": "s79",
-        "result": {},
-        "status": false,
+        "channel": "s10e",
+        "description": "s10f",
+        "duration": "s110",
+        "thumbnail": "s111",
+        "title": "s112",
+        "type": "s113",
+        "uploaded": "s114",
+        "url": "s115",
+        "views": "s116",
         "id": "YTS02"
       }
     }
@@ -27,10 +42,15 @@
   "new": {
     "yts": {
       "yts_ref01": {
-        "code": "sa0",
-        "creator": "sa1",
-        "result": {},
-        "status": false
+        "channel": "s168",
+        "description": "s169",
+        "duration": "s16a",
+        "thumbnail": "s16b",
+        "title": "s16c",
+        "type": "s16d",
+        "uploaded": "s16e",
+        "url": "s16f",
+        "views": "s170"
       }
     }
   }

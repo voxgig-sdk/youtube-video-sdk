@@ -23,8 +23,8 @@ module YoutubeVideoTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("YOUTUBEVIDEO_TEST_LIVE")
-    override = getenv("YOUTUBEVIDEO_TEST_OVERRIDE")
+    live = getenv("YOUTUBE_VIDEO_TEST_LIVE")
+    override = getenv("YOUTUBE_VIDEO_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module YoutubeVideoTestRunner
       end
     end
 
-    explain = getenv("YOUTUBEVIDEO_TEST_EXPLAIN")
-    m["YOUTUBEVIDEO_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("YOUTUBE_VIDEO_TEST_EXPLAIN")
+    m["YOUTUBE_VIDEO_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

@@ -71,11 +71,11 @@ function yts_direct_setup($mockres)
     $calls = new \ArrayObject();
 
     $env = Runner::env_override([
-        "YOUTUBEVIDEO_TEST_YTS_ENTID" => [],
-        "YOUTUBEVIDEO_TEST_LIVE" => "FALSE",
+        "YOUTUBE_VIDEO_TEST_YTS_ENTID" => [],
+        "YOUTUBE_VIDEO_TEST_LIVE" => "FALSE",
     ]);
 
-    $live = $env["YOUTUBEVIDEO_TEST_LIVE"] === "TRUE";
+    $live = $env["YOUTUBE_VIDEO_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [

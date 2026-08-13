@@ -8,6 +8,7 @@ guide: {
   entity: yts: {
     path: "/api/search/yts": {
       op: load: method: *GET
+      op: load: transform: res: *("`body.result`")|top
     }
   }
 

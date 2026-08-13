@@ -225,10 +225,15 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `code` |  |
-| `creator` |  |
-| `result` |  |
-| `status` |  |
+| `channel` |  |
+| `description` |  |
+| `duration` |  |
+| `thumbnail` |  |
+| `title` |  |
+| `type` |  |
+| `uploaded` |  |
+| `url` |  |
+| `views` |  |
 
 Operations: Load.
 
@@ -253,10 +258,15 @@ Create an instance: `local yts = client:Yts(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `code` | `number` |  |
-| `creator` | `string` |  |
-| `result` | `table` |  |
-| `status` | `boolean` |  |
+| `channel` | `string` |  |
+| `description` | `string` |  |
+| `duration` | `string` |  |
+| `thumbnail` | `string` |  |
+| `title` | `string` |  |
+| `type` | `string` |  |
+| `uploaded` | `string` |  |
+| `url` | `string` |  |
+| `views` | `number` |  |
 
 #### Example: Load
 

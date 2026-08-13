@@ -7,16 +7,26 @@
 -- edit by hand.
 
 ---@class Yts
----@field code number
----@field creator? string
----@field result table
----@field status boolean
+---@field channel string
+---@field description string
+---@field duration string
+---@field thumbnail string
+---@field title string
+---@field type string
+---@field uploaded string
+---@field url string
+---@field views number
 
 ---@class YtsLoadMatch
----@field code? number
----@field creator? string
----@field result? table
----@field status? boolean
+---@field channel? string
+---@field description? string
+---@field duration? string
+---@field thumbnail? string
+---@field title? string
+---@field type? string
+---@field uploaded? string
+---@field url? string
+---@field views? number
 
 local M = {}
 

@@ -26,7 +26,7 @@ class YtsEntityTest < Minitest::Test
     # The basic flow consumes synthetic IDs from the fixture. In live mode
     # without an *_ENTID env override, those IDs hit the live API and 4xx.
     if setup[:synthetic_only]
-      skip "live entity test uses synthetic IDs from fixture — set YOUTUBEVIDEO_TEST_YTS_ENTID JSON to run live"
+      skip "live entity test uses synthetic IDs from fixture — set YOUTUBE_VIDEO_TEST_YTS_ENTID JSON to run live"
       return
     end
     client = setup[:client]
@@ -74,22 +74,22 @@ def yts_basic_setup(extra)
   # Detect ENTID env override before envOverride consumes it. When live
   # mode is on without a real override, the basic test runs against synthetic
   # IDs from the fixture and 4xx's. Surface this so the test can skip.
-  entid_env_raw = ENV["YOUTUBEVIDEO_TEST_YTS_ENTID"]
+  entid_env_raw = ENV["YOUTUBE_VIDEO_TEST_YTS_ENTID"]
   idmap_overridden = !entid_env_raw.nil? && entid_env_raw.strip.start_with?("{")
 
   env = Runner.env_override({
-    "YOUTUBEVIDEO_TEST_YTS_ENTID" => idmap,
-    "YOUTUBEVIDEO_TEST_LIVE" => "FALSE",
-    "YOUTUBEVIDEO_TEST_EXPLAIN" => "FALSE",
+    "YOUTUBE_VIDEO_TEST_YTS_ENTID" => idmap,
+    "YOUTUBE_VIDEO_TEST_LIVE" => "FALSE",
+    "YOUTUBE_VIDEO_TEST_EXPLAIN" => "FALSE",
   })
 
   idmap_resolved = Helpers.to_map(
-    env["YOUTUBEVIDEO_TEST_YTS_ENTID"])
+    env["YOUTUBE_VIDEO_TEST_YTS_ENTID"])
   if idmap_resolved.nil?
     idmap_resolved = Helpers.to_map(idmap)
   end
 
-  if env["YOUTUBEVIDEO_TEST_LIVE"] == "TRUE"
+  if env["YOUTUBE_VIDEO_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
       },
@@ -98,13 +98,13 @@ def yts_basic_setup(extra)
     client = YoutubeVideoSDK.new(Helpers.to_map(merged_opts))
   end
 
-  live = env["YOUTUBEVIDEO_TEST_LIVE"] == "TRUE"
+  live = env["YOUTUBE_VIDEO_TEST_LIVE"] == "TRUE"
   {
     client: client,
     data: entity_data,
     idmap: idmap_resolved,
     env: env,
-    explain: env["YOUTUBEVIDEO_TEST_EXPLAIN"] == "TRUE",
+    explain: env["YOUTUBE_VIDEO_TEST_EXPLAIN"] == "TRUE",
     live: live,
     synthetic_only: live && !idmap_overridden,
     now: (Time.now.to_f * 1000).to_i,

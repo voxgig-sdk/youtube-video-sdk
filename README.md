@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = YoutubeVideoSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = YoutubeVideoSDK.test({
+  entity: {
+    yts: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const yts = await client.Yts().load()
-// yts is a bare Yts populated with mock data
+// yts is the Yts entity, populated with mock data
+// — call yts.data() for the record itself
 console.log(yts)
 ```
 
@@ -182,7 +191,7 @@ require_once 'youtubevideo_sdk.php';
 $client = new YoutubeVideoSDK();
 
 
-// Load a specific yts (returns the bare record; throws on error)
+// Load a specific yts (returns the ENTITY; call data_get() for the record; throws on error)
 $yts = $client->Yts()->load();
 print_r($yts);
 ```
@@ -210,7 +219,7 @@ require_relative "YoutubeVideo_sdk"
 client = YoutubeVideoSDK.new
 
 
-# Load a specific yts (returns the bare record; raises on error)
+# Load a specific yts (returns the ENTITY; call data_get for the record)
 yts = client.Yts.load()
 puts yts
 ```
@@ -344,6 +353,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://freepublicapis.com/youtube-video-api](https://freepublicapis.com/youtube-video-api)
 

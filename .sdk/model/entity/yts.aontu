@@ -6,24 +6,49 @@ main: kit: entity: yts: {
 
   fields: [
     {
-      name: "code"
+      name: "channel"
       req: true
-      type: "`$INTEGER`"
-    }
-    {
-      name: "creator"
-      req: false
       type: "`$STRING`"
     }
     {
-      name: "result"
+      name: "description"
       req: true
-      type: "`$OBJECT`"
+      type: "`$STRING`"
     }
     {
-      name: "status"
+      name: "duration"
       req: true
-      type: "`$BOOLEAN`"
+      type: "`$STRING`"
+    }
+    {
+      name: "thumbnail"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "title"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "type"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "uploaded"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "views"
+      req: true
+      type: "`$INTEGER`"
     }
   ]
 
@@ -59,7 +84,7 @@ main: kit: entity: yts: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.result`"
           }
         }
       ]

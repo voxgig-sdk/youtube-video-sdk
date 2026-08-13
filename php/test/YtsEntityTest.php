@@ -33,7 +33,7 @@ class YtsEntityTest extends TestCase
         // The basic flow consumes synthetic IDs from the fixture. In live mode
         // without an *_ENTID env override, those IDs hit the live API and 4xx.
         if (!empty($setup["synthetic_only"])) {
-            $this->markTestSkipped("live entity test uses synthetic IDs from fixture — set YOUTUBEVIDEO_TEST_YTS_ENTID JSON to run live");
+            $this->markTestSkipped("live entity test uses synthetic IDs from fixture — set YOUTUBE_VIDEO_TEST_YTS_ENTID JSON to run live");
             return;
         }
         $client = $setup["client"];
@@ -77,22 +77,22 @@ function yts_basic_setup($extra)
     // Detect ENTID env override before envOverride consumes it. When live
     // mode is on without a real override, the basic test runs against synthetic
     // IDs from the fixture and 4xx's. Surface this so the test can skip.
-    $entid_env_raw = getenv("YOUTUBEVIDEO_TEST_YTS_ENTID");
+    $entid_env_raw = getenv("YOUTUBE_VIDEO_TEST_YTS_ENTID");
     $idmap_overridden = $entid_env_raw !== false && str_starts_with(trim($entid_env_raw), "{");
 
     $env = Runner::env_override([
-        "YOUTUBEVIDEO_TEST_YTS_ENTID" => $idmap,
-        "YOUTUBEVIDEO_TEST_LIVE" => "FALSE",
-        "YOUTUBEVIDEO_TEST_EXPLAIN" => "FALSE",
+        "YOUTUBE_VIDEO_TEST_YTS_ENTID" => $idmap,
+        "YOUTUBE_VIDEO_TEST_LIVE" => "FALSE",
+        "YOUTUBE_VIDEO_TEST_EXPLAIN" => "FALSE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
-        $env["YOUTUBEVIDEO_TEST_YTS_ENTID"]);
+        $env["YOUTUBE_VIDEO_TEST_YTS_ENTID"]);
     if ($idmap_resolved === null) {
         $idmap_resolved = Helpers::to_map($idmap);
     }
 
-    if ($env["YOUTUBEVIDEO_TEST_LIVE"] === "TRUE") {
+    if ($env["YOUTUBE_VIDEO_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
             ],
@@ -101,13 +101,13 @@ function yts_basic_setup($extra)
         $client = new YoutubeVideoSDK(Helpers::to_map($merged_opts));
     }
 
-    $live = $env["YOUTUBEVIDEO_TEST_LIVE"] === "TRUE";
+    $live = $env["YOUTUBE_VIDEO_TEST_LIVE"] === "TRUE";
     return [
         "client" => $client,
         "data" => $entity_data,
         "idmap" => $idmap_resolved,
         "env" => $env,
-        "explain" => $env["YOUTUBEVIDEO_TEST_EXPLAIN"] === "TRUE",
+        "explain" => $env["YOUTUBE_VIDEO_TEST_EXPLAIN"] === "TRUE",
         "live" => $live,
         "synthetic_only" => $live && !$idmap_overridden,
         "now" => (int)(microtime(true) * 1000),

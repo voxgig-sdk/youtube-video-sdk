@@ -66,11 +66,11 @@ function yts_direct_setup(mockres)
   local calls = {}
 
   local env = runner.env_override({
-    ["YOUTUBEVIDEO_TEST_YTS_ENTID"] = {},
-    ["YOUTUBEVIDEO_TEST_LIVE"] = "FALSE",
+    ["YOUTUBE_VIDEO_TEST_YTS_ENTID"] = {},
+    ["YOUTUBE_VIDEO_TEST_LIVE"] = "FALSE",
   })
 
-  local live = env["YOUTUBEVIDEO_TEST_LIVE"] == "TRUE"
+  local live = env["YOUTUBE_VIDEO_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {

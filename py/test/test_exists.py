@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# YoutubeVideo SDK exists test
 
 import pytest
 from youtubevideo_sdk import YoutubeVideoSDK

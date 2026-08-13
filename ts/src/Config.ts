@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'YoutubeVideo',
   }
 
 
@@ -56,31 +56,66 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "code",
+          "name": "channel",
           "req": true,
-          "type": "`$INTEGER`",
+          "type": "`$STRING`",
           "index$": 0
         },
         {
           "active": true,
-          "name": "creator",
-          "req": false,
+          "name": "description",
+          "req": true,
           "type": "`$STRING`",
           "index$": 1
         },
         {
           "active": true,
-          "name": "result",
+          "name": "duration",
           "req": true,
-          "type": "`$OBJECT`",
+          "type": "`$STRING`",
           "index$": 2
         },
         {
           "active": true,
-          "name": "status",
+          "name": "thumbnail",
           "req": true,
-          "type": "`$BOOLEAN`",
+          "type": "`$STRING`",
           "index$": 3
+        },
+        {
+          "active": true,
+          "name": "title",
+          "req": true,
+          "type": "`$STRING`",
+          "index$": 4
+        },
+        {
+          "active": true,
+          "name": "type",
+          "req": true,
+          "type": "`$STRING`",
+          "index$": 5
+        },
+        {
+          "active": true,
+          "name": "uploaded",
+          "req": true,
+          "type": "`$STRING`",
+          "index$": 6
+        },
+        {
+          "active": true,
+          "name": "url",
+          "req": true,
+          "type": "`$STRING`",
+          "index$": 7
+        },
+        {
+          "active": true,
+          "name": "views",
+          "req": true,
+          "type": "`$INTEGER`",
+          "index$": 8
         }
       ],
       "name": "yts",
@@ -104,6 +139,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/search/yts",
               "parts": [
@@ -118,7 +154,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.result`"
               },
               "index$": 0
             }

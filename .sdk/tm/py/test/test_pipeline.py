@@ -16,11 +16,11 @@
 import pytest
 
 from projectname_sdk import YoutubeVideoSDK
-from core.error import YoutubeVideoError
-from core.result import YoutubeVideoResult
-from core.response import YoutubeVideoResponse
-from core.spec import YoutubeVideoSpec
-from feature.base_feature import YoutubeVideoBaseFeature
+from projectname_sdk.core.error import YoutubeVideoError
+from projectname_sdk.core.result import YoutubeVideoResult
+from projectname_sdk.core.response import YoutubeVideoResponse
+from projectname_sdk.core.spec import YoutubeVideoSpec
+from projectname_sdk.feature.base_feature import YoutubeVideoBaseFeature
 
 
 def _client():

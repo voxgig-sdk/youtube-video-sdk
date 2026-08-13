@@ -19,11 +19,15 @@ import {
 describe('YtsDirect', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when YOUTUBEVIDEO_TEST_LIVE=TRUE.
-  afterEach(liveDelay('YOUTUBEVIDEO_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when YOUTUBE_VIDEO_TEST_LIVE=TRUE.
+  afterEach(liveDelay('YOUTUBE_VIDEO_TEST_LIVE'))
 
   test('direct-exists', async () => {
     const sdk = new YoutubeVideoSDK({
+      // Concrete base: a live construction must satisfy any server
+      // variables a templated base URL declares; overriding base with a
+      // literal (as the direct flow tests do) sidesteps the requirement.
+      base: 'http://localhost:8080',
       system: { fetch: async () => ({}) }
     })
     assert('function' === typeof sdk.direct)
@@ -76,17 +80,17 @@ function directSetup(mockres?: any) {
   const calls: any[] = []
 
   const env = envOverride({
-    'YOUTUBEVIDEO_TEST_YTS_ENTID': {},
-    'YOUTUBEVIDEO_TEST_LIVE': 'FALSE',
+    'YOUTUBE_VIDEO_TEST_YTS_ENTID': {},
+    'YOUTUBE_VIDEO_TEST_LIVE': 'FALSE',
   })
 
-  const live = 'TRUE' === env.YOUTUBEVIDEO_TEST_LIVE
+  const live = 'TRUE' === env.YOUTUBE_VIDEO_TEST_LIVE
 
   if (live) {
     const client = new YoutubeVideoSDK({
     })
 
-    let idmap: any = env['YOUTUBEVIDEO_TEST_YTS_ENTID']
+    let idmap: any = env['YOUTUBE_VIDEO_TEST_YTS_ENTID']
     if ('string' === typeof idmap && idmap.startsWith('{')) {
       idmap = JSON.parse(idmap)
     }

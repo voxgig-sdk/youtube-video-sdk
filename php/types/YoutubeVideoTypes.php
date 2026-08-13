@@ -15,18 +15,28 @@ declare(strict_types=1);
 /** Yts entity data model. */
 class Yts
 {
-    public int $code;
-    public ?string $creator = null;
-    public array $result;
-    public bool $status;
+    public string $channel;
+    public string $description;
+    public string $duration;
+    public string $thumbnail;
+    public string $title;
+    public string $type;
+    public string $uploaded;
+    public string $url;
+    public int $views;
 }
 
 /** Request payload for Yts#load. */
 class YtsLoadMatch
 {
-    public ?int $code = null;
-    public ?string $creator = null;
-    public ?array $result = null;
-    public ?bool $status = null;
+    public ?string $channel = null;
+    public ?string $description = null;
+    public ?string $duration = null;
+    public ?string $thumbnail = null;
+    public ?string $title = null;
+    public ?string $type = null;
+    public ?string $uploaded = null;
+    public ?string $url = null;
+    public ?int $views = null;
 }
 

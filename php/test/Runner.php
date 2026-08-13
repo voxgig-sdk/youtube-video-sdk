@@ -43,8 +43,8 @@ class YoutubeVideoTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('YOUTUBEVIDEO_TEST_LIVE');
-        $override = self::getenv('YOUTUBEVIDEO_TEST_OVERRIDE');
+        $live = self::getenv('YOUTUBE_VIDEO_TEST_LIVE');
+        $override = self::getenv('YOUTUBE_VIDEO_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class YoutubeVideoTestRunner
             }
         }
 
-        $explain = self::getenv('YOUTUBEVIDEO_TEST_EXPLAIN');
+        $explain = self::getenv('YOUTUBE_VIDEO_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['YOUTUBEVIDEO_TEST_EXPLAIN'] = $explain;
+            $m['YOUTUBE_VIDEO_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

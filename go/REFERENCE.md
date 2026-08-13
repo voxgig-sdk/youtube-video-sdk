@@ -98,10 +98,15 @@ fmt.Println(yts.GetName()) // "yts"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `code` | `int` | Yes |  |
-| `creator` | `string` | No |  |
-| `result` | `map[string]any` | Yes |  |
-| `status` | `bool` | Yes |  |
+| `channel` | `string` | Yes |  |
+| `description` | `string` | Yes |  |
+| `duration` | `string` | Yes |  |
+| `thumbnail` | `string` | Yes |  |
+| `title` | `string` | Yes |  |
+| `type` | `string` | Yes |  |
+| `uploaded` | `string` | Yes |  |
+| `url` | `string` | Yes |  |
+| `views` | `int` | Yes |  |
 
 ### Operations
 

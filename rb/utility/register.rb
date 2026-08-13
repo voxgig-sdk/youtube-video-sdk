@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ YoutubeVideoUtility.registrar = ->(u) {
   u.prepare_params = YoutubeVideoUtilities::PrepareParams
   u.prepare_path = YoutubeVideoUtilities::PreparePath
   u.prepare_query = YoutubeVideoUtilities::PrepareQuery
+  u.graphql_body = YoutubeVideoUtilities::GraphqlBody
+  u.graphql_errors = YoutubeVideoUtilities::GraphqlErrors
   u.result_basic = YoutubeVideoUtilities::ResultBasic
   u.result_body = YoutubeVideoUtilities::ResultBody
   u.result_headers = YoutubeVideoUtilities::ResultHeaders

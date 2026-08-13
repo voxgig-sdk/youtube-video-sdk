@@ -26,8 +26,8 @@ import {
 describe('YtsEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when YOUTUBEVIDEO_TEST_LIVE=TRUE.
-  afterEach(liveDelay('YOUTUBEVIDEO_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when YOUTUBE_VIDEO_TEST_LIVE=TRUE.
+  afterEach(liveDelay('YOUTUBE_VIDEO_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = YoutubeVideoSDK.test()
@@ -62,7 +62,7 @@ describe('YtsEntity', async () => {
     // LOAD
     const yts_ref01_ent = client.Yts()
     const yts_ref01_match_dt0: any = {}
-    const yts_ref01_data_dt0 = await yts_ref01_ent.load(yts_ref01_match_dt0)
+    const yts_ref01_data_dt0 = (await yts_ref01_ent.load(yts_ref01_match_dt0)).data()
     assert(null != yts_ref01_data_dt0)
 
 
