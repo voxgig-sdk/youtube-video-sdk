@@ -40,7 +40,7 @@ class YoutubeVideoSDK
         $utility = new YoutubeVideoUtility();
         $this->_utility = $utility;
 
-        $config = YoutubeVideoConfig::make_config();
+        $config = YoutubeVideoConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

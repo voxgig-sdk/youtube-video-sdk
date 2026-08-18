@@ -36,7 +36,7 @@ class Config {
 
 
   options = {
-    base: 'https://abhi-api.vercel.app',
+    base: "https://abhi-api.vercel.app",
 
     headers: {
       "content-type": "application/json"
@@ -55,67 +55,49 @@ class Config {
     "yts": {
       "fields": [
         {
-          "active": true,
           "name": "channel",
           "req": true,
-          "type": "`$STRING`",
-          "index$": 0
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "description",
           "req": true,
-          "type": "`$STRING`",
-          "index$": 1
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "duration",
           "req": true,
-          "type": "`$STRING`",
-          "index$": 2
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "thumbnail",
           "req": true,
-          "type": "`$STRING`",
-          "index$": 3
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "title",
           "req": true,
-          "type": "`$STRING`",
-          "index$": 4
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "type",
           "req": true,
-          "type": "`$STRING`",
-          "index$": 5
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "uploaded",
           "req": true,
-          "type": "`$STRING`",
-          "index$": 6
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "url",
           "req": true,
-          "type": "`$STRING`",
-          "index$": 7
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "views",
           "req": true,
-          "type": "`$INTEGER`",
-          "index$": 8
+          "type": "`$INTEGER`"
         }
       ],
       "name": "yts",
@@ -125,11 +107,9 @@ class Config {
           "name": "load",
           "points": [
             {
-              "active": true,
               "args": {
                 "query": [
                   {
-                    "active": true,
                     "example": "heat waves",
                     "kind": "query",
                     "name": "text",
@@ -155,11 +135,9 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.result`"
-              },
-              "index$": 0
+              }
             }
-          ],
-          "key$": "load"
+          ]
         }
       },
       "relations": {

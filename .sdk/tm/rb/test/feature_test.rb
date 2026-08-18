@@ -15,7 +15,7 @@ require_relative "../YoutubeVideo_sdk"
 module YoutubeVideoFeatureHarness
   # True when this SDK was generated with the named feature.
   def self.has_feature?(name)
-    f = YoutubeVideoConfig.make_config["feature"]
+    f = YoutubeVideoConfig.shared_config["feature"]
     f.is_a?(Hash) && !f[name].nil?
   end
 

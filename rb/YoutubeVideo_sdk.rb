@@ -28,7 +28,7 @@ class YoutubeVideoSDK
     utility = YoutubeVideoUtility.new
     @_utility = utility
 
-    config = YoutubeVideoConfig.make_config
+    config = YoutubeVideoConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,
