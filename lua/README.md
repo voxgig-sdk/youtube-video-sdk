@@ -225,15 +225,15 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `channel` |  |
-| `description` |  |
-| `duration` |  |
-| `thumbnail` |  |
-| `title` |  |
-| `type` |  |
-| `uploaded` |  |
-| `url` |  |
-| `views` |  |
+| `channel` | Name of the YouTube channel that uploaded the video |
+| `description` | Description of the video |
+| `duration` | Duration of the video |
+| `thumbnail` | URL to the video thumbnail image |
+| `title` | Title of the YouTube video |
+| `type` | Type of content |
+| `uploaded` | Time since the video was uploaded |
+| `url` | Direct URL to the YouTube video |
+| `views` | Number of views the video has received |
 
 Operations: Load.
 
@@ -258,15 +258,15 @@ Create an instance: `local yts = client:Yts(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `channel` | `string` |  |
-| `description` | `string` |  |
-| `duration` | `string` |  |
-| `thumbnail` | `string` |  |
-| `title` | `string` |  |
-| `type` | `string` |  |
-| `uploaded` | `string` |  |
-| `url` | `string` |  |
-| `views` | `number` |  |
+| `channel` | `string` | Name of the YouTube channel that uploaded the video |
+| `description` | `string` | Description of the video |
+| `duration` | `string` | Duration of the video |
+| `thumbnail` | `string` | URL to the video thumbnail image |
+| `title` | `string` | Title of the YouTube video |
+| `type` | `string` | Type of content |
+| `uploaded` | `string` | Time since the video was uploaded |
+| `url` | `string` | Direct URL to the YouTube video |
+| `views` | `number` | Number of views the video has received |
 
 #### Example: Load
 

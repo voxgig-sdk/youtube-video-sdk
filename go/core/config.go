@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "YoutubeVideo",
+			"slug": "youtube-video",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -34,46 +37,55 @@ func MakeConfig() map[string]any {
 					map[string]any{
 						"name": "channel",
 						"req": true,
+						"short": "Name of the YouTube channel that uploaded the video",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "description",
 						"req": true,
+						"short": "Description of the video",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "duration",
 						"req": true,
+						"short": "Duration of the video",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "thumbnail",
 						"req": true,
+						"short": "URL to the video thumbnail image",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "title",
 						"req": true,
+						"short": "Title of the YouTube video",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "type",
 						"req": true,
+						"short": "Type of content",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "uploaded",
 						"req": true,
+						"short": "Time since the video was uploaded",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "url",
 						"req": true,
+						"short": "Direct URL to the YouTube video",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "views",
 						"req": true,
+						"short": "Number of views the video has received",
 						"type": "`$INTEGER`",
 					},
 				},

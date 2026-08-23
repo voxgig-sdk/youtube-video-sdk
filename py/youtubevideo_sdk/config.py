@@ -28,6 +28,9 @@ def make_config():
     return {
         "main": {
             "name": "YoutubeVideo",
+            "slug": "youtube-video",
+            "version": "0.0.1",
+            "target": "py",
         },
         "feature": {
             "test": {
@@ -51,46 +54,55 @@ def make_config():
           {
             "name": "channel",
             "req": True,
+            "short": "Name of the YouTube channel that uploaded the video",
             "type": "`$STRING`",
           },
           {
             "name": "description",
             "req": True,
+            "short": "Description of the video",
             "type": "`$STRING`",
           },
           {
             "name": "duration",
             "req": True,
+            "short": "Duration of the video",
             "type": "`$STRING`",
           },
           {
             "name": "thumbnail",
             "req": True,
+            "short": "URL to the video thumbnail image",
             "type": "`$STRING`",
           },
           {
             "name": "title",
             "req": True,
+            "short": "Title of the YouTube video",
             "type": "`$STRING`",
           },
           {
             "name": "type",
             "req": True,
+            "short": "Type of content",
             "type": "`$STRING`",
           },
           {
             "name": "uploaded",
             "req": True,
+            "short": "Time since the video was uploaded",
             "type": "`$STRING`",
           },
           {
             "name": "url",
             "req": True,
+            "short": "Direct URL to the YouTube video",
             "type": "`$STRING`",
           },
           {
             "name": "views",
             "req": True,
+            "short": "Number of views the video has received",
             "type": "`$INTEGER`",
           },
         ],

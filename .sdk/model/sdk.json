@@ -36,54 +36,63 @@
               "active": true,
               "name": "channel",
               "req": true,
+              "short": "Name of the YouTube channel that uploaded the video",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "description",
               "req": true,
+              "short": "Description of the video",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "duration",
               "req": true,
+              "short": "Duration of the video",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "thumbnail",
               "req": true,
+              "short": "URL to the video thumbnail image",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "title",
               "req": true,
+              "short": "Title of the YouTube video",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "type",
               "req": true,
+              "short": "Type of content",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "uploaded",
               "req": true,
+              "short": "Time since the video was uploaded",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "url",
               "req": true,
+              "short": "Direct URL to the YouTube video",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "views",
               "req": true,
+              "short": "Number of views the video has received",
               "type": "`$INTEGER`"
             }
           ],

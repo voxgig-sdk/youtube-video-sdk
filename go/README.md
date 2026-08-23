@@ -6,7 +6,7 @@ The Golang SDK for the YoutubeVideo API — an entity-oriented client using stan
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.Yts(nil)` — each with the same small set of operations (`Load`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -258,15 +258,15 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"channel"` |  |
-| `"description"` |  |
-| `"duration"` |  |
-| `"thumbnail"` |  |
-| `"title"` |  |
-| `"type"` |  |
-| `"uploaded"` |  |
-| `"url"` |  |
-| `"views"` |  |
+| `"channel"` | Name of the YouTube channel that uploaded the video |
+| `"description"` | Description of the video |
+| `"duration"` | Duration of the video |
+| `"thumbnail"` | URL to the video thumbnail image |
+| `"title"` | Title of the YouTube video |
+| `"type"` | Type of content |
+| `"uploaded"` | Time since the video was uploaded |
+| `"url"` | Direct URL to the YouTube video |
+| `"views"` | Number of views the video has received |
 
 Operations: Load.
 
@@ -291,15 +291,15 @@ Create an instance: `yts := client.Yts(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `channel` | `string` |  |
-| `description` | `string` |  |
-| `duration` | `string` |  |
-| `thumbnail` | `string` |  |
-| `title` | `string` |  |
-| `type` | `string` |  |
-| `uploaded` | `string` |  |
-| `url` | `string` |  |
-| `views` | `int` |  |
+| `channel` | `string` | Name of the YouTube channel that uploaded the video |
+| `description` | `string` | Description of the video |
+| `duration` | `string` | Duration of the video |
+| `thumbnail` | `string` | URL to the video thumbnail image |
+| `title` | `string` | Title of the YouTube video |
+| `type` | `string` | Type of content |
+| `uploaded` | `string` | Time since the video was uploaded |
+| `url` | `string` | Direct URL to the YouTube video |
+| `views` | `int` | Number of views the video has received |
 
 #### Example: Load
 

@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -285,15 +285,15 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `channel` |  |
-| `description` |  |
-| `duration` |  |
-| `thumbnail` |  |
-| `title` |  |
-| `type` |  |
-| `uploaded` |  |
-| `url` |  |
-| `views` |  |
+| `channel` | Name of the YouTube channel that uploaded the video |
+| `description` | Description of the video |
+| `duration` | Duration of the video |
+| `thumbnail` | URL to the video thumbnail image |
+| `title` | Title of the YouTube video |
+| `type` | Type of content |
+| `uploaded` | Time since the video was uploaded |
+| `url` | Direct URL to the YouTube video |
+| `views` | Number of views the video has received |
 
 Operations: load.
 
@@ -318,15 +318,15 @@ Create an instance: `const yts = client.Yts()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `channel` | `string` |  |
-| `description` | `string` |  |
-| `duration` | `string` |  |
-| `thumbnail` | `string` |  |
-| `title` | `string` |  |
-| `type` | `string` |  |
-| `uploaded` | `string` |  |
-| `url` | `string` |  |
-| `views` | `number` |  |
+| `channel` | `string` | Name of the YouTube channel that uploaded the video |
+| `description` | `string` | Description of the video |
+| `duration` | `string` | Duration of the video |
+| `thumbnail` | `string` | URL to the video thumbnail image |
+| `title` | `string` | Title of the YouTube video |
+| `type` | `string` | Type of content |
+| `uploaded` | `string` | Time since the video was uploaded |
+| `url` | `string` | Direct URL to the YouTube video |
+| `views` | `number` | Number of views the video has received |
 
 #### Example: Load
 

@@ -19,6 +19,9 @@ module YoutubeVideoConfig
     {
       "main" => {
         "name" => "YoutubeVideo",
+        "slug" => "youtube-video",
+        "version" => "0.0.1",
+        "target" => "rb",
       },
       "feature" => {
         "test" => {
@@ -42,46 +45,55 @@ module YoutubeVideoConfig
             {
               "name" => "channel",
               "req" => true,
+              "short" => "Name of the YouTube channel that uploaded the video",
               "type" => "`$STRING`",
             },
             {
               "name" => "description",
               "req" => true,
+              "short" => "Description of the video",
               "type" => "`$STRING`",
             },
             {
               "name" => "duration",
               "req" => true,
+              "short" => "Duration of the video",
               "type" => "`$STRING`",
             },
             {
               "name" => "thumbnail",
               "req" => true,
+              "short" => "URL to the video thumbnail image",
               "type" => "`$STRING`",
             },
             {
               "name" => "title",
               "req" => true,
+              "short" => "Title of the YouTube video",
               "type" => "`$STRING`",
             },
             {
               "name" => "type",
               "req" => true,
+              "short" => "Type of content",
               "type" => "`$STRING`",
             },
             {
               "name" => "uploaded",
               "req" => true,
+              "short" => "Time since the video was uploaded",
               "type" => "`$STRING`",
             },
             {
               "name" => "url",
               "req" => true,
+              "short" => "Direct URL to the YouTube video",
               "type" => "`$STRING`",
             },
             {
               "name" => "views",
               "req" => true,
+              "short" => "Number of views the video has received",
               "type" => "`$INTEGER`",
             },
           ],

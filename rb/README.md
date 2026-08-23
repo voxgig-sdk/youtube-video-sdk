@@ -235,15 +235,15 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `channel` |  |
-| `description` |  |
-| `duration` |  |
-| `thumbnail` |  |
-| `title` |  |
-| `type` |  |
-| `uploaded` |  |
-| `url` |  |
-| `views` |  |
+| `channel` | Name of the YouTube channel that uploaded the video |
+| `description` | Description of the video |
+| `duration` | Duration of the video |
+| `thumbnail` | URL to the video thumbnail image |
+| `title` | Title of the YouTube video |
+| `type` | Type of content |
+| `uploaded` | Time since the video was uploaded |
+| `url` | Direct URL to the YouTube video |
+| `views` | Number of views the video has received |
 
 Operations: Load.
 
@@ -268,15 +268,15 @@ Create an instance: `yts = client.Yts`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `channel` | `String` |  |
-| `description` | `String` |  |
-| `duration` | `String` |  |
-| `thumbnail` | `String` |  |
-| `title` | `String` |  |
-| `type` | `String` |  |
-| `uploaded` | `String` |  |
-| `url` | `String` |  |
-| `views` | `Integer` |  |
+| `channel` | `String` | Name of the YouTube channel that uploaded the video |
+| `description` | `String` | Description of the video |
+| `duration` | `String` | Duration of the video |
+| `thumbnail` | `String` | URL to the video thumbnail image |
+| `title` | `String` | Title of the YouTube video |
+| `type` | `String` | Type of content |
+| `uploaded` | `String` | Time since the video was uploaded |
+| `url` | `String` | Direct URL to the YouTube video |
+| `views` | `Integer` | Number of views the video has received |
 
 #### Example: Load
 

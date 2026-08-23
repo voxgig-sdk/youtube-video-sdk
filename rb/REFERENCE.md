@@ -93,15 +93,15 @@ yts = client.Yts
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `channel` | `String` | Yes |  |
-| `description` | `String` | Yes |  |
-| `duration` | `String` | Yes |  |
-| `thumbnail` | `String` | Yes |  |
-| `title` | `String` | Yes |  |
-| `type` | `String` | Yes |  |
-| `uploaded` | `String` | Yes |  |
-| `url` | `String` | Yes |  |
-| `views` | `Integer` | Yes |  |
+| `channel` | `String` | Yes | Name of the YouTube channel that uploaded the video |
+| `description` | `String` | Yes | Description of the video |
+| `duration` | `String` | Yes | Duration of the video |
+| `thumbnail` | `String` | Yes | URL to the video thumbnail image |
+| `title` | `String` | Yes | Title of the YouTube video |
+| `type` | `String` | Yes | Type of content |
+| `uploaded` | `String` | Yes | Time since the video was uploaded |
+| `url` | `String` | Yes | Direct URL to the YouTube video |
+| `views` | `Integer` | Yes | Number of views the video has received |
 
 ### Operations
 

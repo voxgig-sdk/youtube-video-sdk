@@ -241,15 +241,15 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `channel` |  |
-| `description` |  |
-| `duration` |  |
-| `thumbnail` |  |
-| `title` |  |
-| `type` |  |
-| `uploaded` |  |
-| `url` |  |
-| `views` |  |
+| `channel` | Name of the YouTube channel that uploaded the video |
+| `description` | Description of the video |
+| `duration` | Duration of the video |
+| `thumbnail` | URL to the video thumbnail image |
+| `title` | Title of the YouTube video |
+| `type` | Type of content |
+| `uploaded` | Time since the video was uploaded |
+| `url` | Direct URL to the YouTube video |
+| `views` | Number of views the video has received |
 
 Operations: Load.
 
@@ -274,15 +274,15 @@ Create an instance: `yts = client.Yts()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `channel` | `str` |  |
-| `description` | `str` |  |
-| `duration` | `str` |  |
-| `thumbnail` | `str` |  |
-| `title` | `str` |  |
-| `type` | `str` |  |
-| `uploaded` | `str` |  |
-| `url` | `str` |  |
-| `views` | `int` |  |
+| `channel` | `str` | Name of the YouTube channel that uploaded the video |
+| `description` | `str` | Description of the video |
+| `duration` | `str` | Duration of the video |
+| `thumbnail` | `str` | URL to the video thumbnail image |
+| `title` | `str` | Title of the YouTube video |
+| `type` | `str` | Type of content |
+| `uploaded` | `str` | Time since the video was uploaded |
+| `url` | `str` | Direct URL to the YouTube video |
+| `views` | `int` | Number of views the video has received |
 
 #### Example: Load
 

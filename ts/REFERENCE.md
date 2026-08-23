@@ -116,15 +116,15 @@ const yts = client.Yts()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `channel` | `string` | Yes |  |
-| `description` | `string` | Yes |  |
-| `duration` | `string` | Yes |  |
-| `thumbnail` | `string` | Yes |  |
-| `title` | `string` | Yes |  |
-| `type` | `string` | Yes |  |
-| `uploaded` | `string` | Yes |  |
-| `url` | `string` | Yes |  |
-| `views` | `number` | Yes |  |
+| `channel` | `string` | Yes | Name of the YouTube channel that uploaded the video |
+| `description` | `string` | Yes | Description of the video |
+| `duration` | `string` | Yes | Duration of the video |
+| `thumbnail` | `string` | Yes | URL to the video thumbnail image |
+| `title` | `string` | Yes | Title of the YouTube video |
+| `type` | `string` | Yes | Type of content |
+| `uploaded` | `string` | Yes | Time since the video was uploaded |
+| `url` | `string` | Yes | Direct URL to the YouTube video |
+| `views` | `number` | Yes | Number of views the video has received |
 
 ### Operations
 
