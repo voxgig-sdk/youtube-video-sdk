@@ -27,15 +27,7 @@ type Yts struct {
 
 // YtsLoadMatch is the typed request payload for Yts.LoadTyped.
 type YtsLoadMatch struct {
-	Channel *string `json:"channel,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Duration *string `json:"duration,omitempty"`
-	Thumbnail *string `json:"thumbnail,omitempty"`
-	Title *string `json:"title,omitempty"`
-	Type *string `json:"type,omitempty"`
-	Uploaded *string `json:"uploaded,omitempty"`
-	Url *string `json:"url,omitempty"`
-	Views *int `json:"views,omitempty"`
+	Text string `json:"text"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

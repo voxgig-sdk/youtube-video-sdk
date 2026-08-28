@@ -51,42 +51,10 @@ Yts = Struct.new(
 
 # Request payload for Yts#load.
 #
-# @!attribute [rw] channel
-#   @return [String, nil]
-#
-# @!attribute [rw] description
-#   @return [String, nil]
-#
-# @!attribute [rw] duration
-#   @return [String, nil]
-#
-# @!attribute [rw] thumbnail
-#   @return [String, nil]
-#
-# @!attribute [rw] title
-#   @return [String, nil]
-#
-# @!attribute [rw] type
-#   @return [String, nil]
-#
-# @!attribute [rw] uploaded
-#   @return [String, nil]
-#
-# @!attribute [rw] url
-#   @return [String, nil]
-#
-# @!attribute [rw] views
-#   @return [Integer, nil]
+# @!attribute [rw] text
+#   @return [String]
 YtsLoadMatch = Struct.new(
-  :channel,
-  :description,
-  :duration,
-  :thumbnail,
-  :title,
-  :type,
-  :uploaded,
-  :url,
-  :views,
+  :text,
   keyword_init: true
 )
 

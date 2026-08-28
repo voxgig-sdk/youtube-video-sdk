@@ -28,13 +28,5 @@ class Yts(TypedDict):
     views: int
 
 
-class YtsLoadMatch(TypedDict, total=False):
-    channel: str
-    description: str
-    duration: str
-    thumbnail: str
-    title: str
-    type: str
-    uploaded: str
-    url: str
-    views: int
+class YtsLoadMatch(TypedDict):
+    text: str

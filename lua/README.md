@@ -36,7 +36,7 @@ local client = sdk.new()
 ### 3. Load a yts
 
 ```lua
-local yts, err = client:Yts():load()
+local yts, err = client:Yts():load({ text = "example_text" })
 if err then error(err) end
 print(yts)
 ```
@@ -48,7 +48,7 @@ Entity operations return `(value, err)`. Check `err` before using
 the value:
 
 ```lua
-local yts, err = client:Yts():load()
+local yts, err = client:Yts():load({ text = "example" })
 if err then error(err) end
 ```
 
@@ -106,7 +106,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:Yts():load()
+local result, err = client:Yts():load({ text = "example" })
 -- result is the returned data; err is set on failure
 ```
 
@@ -271,8 +271,31 @@ Create an instance: `local yts = client:Yts(nil)`
 #### Example: Load
 
 ```lua
-local yts, err = client:Yts():load()
+local yts, err = client:Yts():load({ text = "text" })
 ```
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Advanced
@@ -352,7 +375,7 @@ stores the returned data and match criteria internally.
 
 ```lua
 local yts = client:Yts()
-yts:load()
+yts:load({ text = "example" })
 
 -- yts:data_get() now returns the yts data from the last load
 -- yts:match_get() returns the last match criteria

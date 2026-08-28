@@ -29,14 +29,6 @@ class Yts
 /** Request payload for Yts#load. */
 class YtsLoadMatch
 {
-    public ?string $channel = null;
-    public ?string $description = null;
-    public ?string $duration = null;
-    public ?string $thumbnail = null;
-    public ?string $title = null;
-    public ?string $type = null;
-    public ?string $uploaded = null;
-    public ?string $url = null;
-    public ?int $views = null;
+    public string $text;
 }
 

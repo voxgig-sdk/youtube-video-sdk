@@ -18,15 +18,7 @@
 ---@field views number
 
 ---@class YtsLoadMatch
----@field channel? string
----@field description? string
----@field duration? string
----@field thumbnail? string
----@field title? string
----@field type? string
----@field uploaded? string
----@field url? string
----@field views? number
+---@field text string
 
 local M = {}
 

@@ -42,7 +42,7 @@ client = YoutubeVideoSDK()
 
 ```python
 try:
-    yts = client.Yts().load()
+    yts = client.Yts().load({"text": "example_text"})
     print(yts)
 except Exception as err:
     print(f"load failed: {err}")
@@ -55,7 +55,7 @@ Entity operations raise on failure, so wrap them in `try` / `except`:
 
 ```python
 try:
-    yts = client.Yts().load()
+    yts = client.Yts().load({"text": "example"})
     print(yts)
 except Exception as err:
     print(f"load failed: {err}")
@@ -124,7 +124,7 @@ client = YoutubeVideoSDK.test()
 
 # Entity ops return the ENTITY and raises on error;
 # call data_get() for the record.
-yts = client.Yts().load()
+yts = client.Yts().load({"text": "example"})
 # yts contains the mock response record
 ```
 
@@ -287,8 +287,31 @@ Create an instance: `yts = client.Yts()`
 #### Example: Load
 
 ```python
-yts = client.Yts().load()
+yts = client.Yts().load({"text": "text"})
 ```
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Advanced
@@ -367,7 +390,7 @@ stores the returned data and match criteria internally.
 
 ```python
 yts = client.Yts()
-yts.load()
+yts.load({"text": "example"})
 
 # yts.data_get() now returns the yts data from the last load
 # yts.match_get() returns the last match criteria

@@ -39,7 +39,7 @@ const client = new YoutubeVideoSDK()
 
 ```ts
 try {
-  const yts = await client.Yts().load()
+  const yts = await client.Yts().load({ text: 'example_text' })
   console.log(yts)
 } catch (err) {
   console.error('load failed:', err)
@@ -53,7 +53,7 @@ Entity operations reject on failure, so wrap them in `try` / `catch`:
 
 ```ts
 try {
-  const yts = await client.Yts().load()
+  const yts = await client.Yts().load({ text: "example" })
   console.log(yts)
 } catch (err) {
   console.error('load failed:', err)
@@ -120,7 +120,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = YoutubeVideoSDK.test()
 
-const yts = await client.Yts().load()
+const yts = await client.Yts().load({ text: 'example_text' })
 // yts is the entity, populated with mock response data
 // — call yts.data() for the record itself
 console.log(yts)
@@ -141,7 +141,7 @@ Entity instances remember their last match and data:
 const entity = client.Yts()
 
 // First call runs the operation and stores its result
-await entity.load()
+await entity.load({ text: 'example_text' })
 
 // Subsequent calls reuse the stored state
 const data = entity.data()
@@ -331,8 +331,31 @@ Create an instance: `const yts = client.Yts()`
 #### Example: Load
 
 ```ts
-const yts = await client.Yts().load()
+const yts = await client.Yts().load({ text: 'text' })
 ```
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Advanced
@@ -405,7 +428,7 @@ calls on the same instance can rely on this state.
 
 ```ts
 const yts = client.Yts()
-await yts.load()
+await yts.load({ text: "example" })
 
 // yts.data() now returns the yts data from the last `load`
 // yts.match() returns the last match criteria
