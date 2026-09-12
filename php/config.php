@@ -76,6 +76,7 @@ class YoutubeVideoConfig
               'type' => '`$STRING`',
             ],
             [
+              'format' => 'uri',
               'name' => 'thumbnail',
               'req' => true,
               'short' => 'URL to the video thumbnail image',
@@ -100,6 +101,7 @@ class YoutubeVideoConfig
               'type' => '`$STRING`',
             ],
             [
+              'format' => 'uri',
               'name' => 'url',
               'req' => true,
               'short' => 'Direct URL to the YouTube video',
@@ -134,10 +136,16 @@ class YoutubeVideoConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/api/search/yts',
-                  'parts' => [
-                    'api',
-                    'search',
-                    'yts',
+                  'segments' => [
+                    [
+                      'lit' => 'api',
+                    ],
+                    [
+                      'lit' => 'search',
+                    ],
+                    [
+                      'lit' => 'yts',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -147,6 +155,11 @@ class YoutubeVideoConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body.result`',
+                  ],
+                  'parts' => [
+                    'api',
+                    'search',
+                    'yts',
                   ],
                 ],
               ],

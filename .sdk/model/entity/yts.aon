@@ -24,6 +24,7 @@ main: kit: entity: yts: {
       type: "`$STRING`"
     }
     {
+      format: "uri"
       name: "thumbnail"
       req: true
       short: "URL to the video thumbnail image"
@@ -48,6 +49,7 @@ main: kit: entity: yts: {
       type: "`$STRING`"
     }
     {
+      format: "uri"
       name: "url"
       req: true
       short: "Direct URL to the YouTube video"
@@ -81,10 +83,16 @@ main: kit: entity: yts: {
           }
           method: "GET"
           orig: "/api/search/yts"
-          parts: [
-            "api"
-            "search"
-            "yts"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "search"
+            }
+            {
+              lit: "yts"
+            }
           ]
           select: {
             exist: [

@@ -10,6 +10,17 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
+// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
+// the model's active plugin groups. A feature that takes a `plugins` option
+// (secrets over sekreto) reads its own entry; a feature with no plugins has
+// none. Named imports above make each definition statically reachable, so
+// an SDK carries exactly the plugin modules its model selects — the same
+// leanness the old side-effect registry imports bought, without a registry.
+const FEATURE_PLUGINS: Record<string, any[]> = {
+  
+}
+
+
 class Config {
 
   makeFeature(this: any, fn: string) {
@@ -85,6 +96,7 @@ class Config {
           "type": "`$STRING`"
         },
         {
+          "format": "uri",
           "name": "thumbnail",
           "req": true,
           "short": "URL to the video thumbnail image",
@@ -109,6 +121,7 @@ class Config {
           "type": "`$STRING`"
         },
         {
+          "format": "uri",
           "name": "url",
           "req": true,
           "short": "Direct URL to the YouTube video",
@@ -143,10 +156,16 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/api/search/yts",
-              "parts": [
-                "api",
-                "search",
-                "yts"
+              "segments": [
+                {
+                  "lit": "api"
+                },
+                {
+                  "lit": "search"
+                },
+                {
+                  "lit": "yts"
+                }
               ],
               "select": {
                 "exist": [
@@ -156,7 +175,12 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.result`"
-              }
+              },
+              "parts": [
+                "api",
+                "search",
+                "yts"
+              ]
             }
           ]
         }
@@ -172,6 +196,7 @@ class Config {
 const config = new Config()
 
 export {
-  config
+  config,
+  FEATURE_PLUGINS,
 }
 

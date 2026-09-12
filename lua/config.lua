@@ -50,6 +50,7 @@ local function make_config()
             ["type"] = "`$STRING`",
           },
           {
+            ["format"] = "uri",
             ["name"] = "thumbnail",
             ["req"] = true,
             ["short"] = "URL to the video thumbnail image",
@@ -74,6 +75,7 @@ local function make_config()
             ["type"] = "`$STRING`",
           },
           {
+            ["format"] = "uri",
             ["name"] = "url",
             ["req"] = true,
             ["short"] = "Direct URL to the YouTube video",
@@ -108,10 +110,16 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/search/yts",
-                ["parts"] = {
-                  "api",
-                  "search",
-                  "yts",
+                ["segments"] = {
+                  {
+                    ["lit"] = "api",
+                  },
+                  {
+                    ["lit"] = "search",
+                  },
+                  {
+                    ["lit"] = "yts",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -121,6 +129,11 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.result`",
+                },
+                ["parts"] = {
+                  "api",
+                  "search",
+                  "yts",
                 },
               },
             },
