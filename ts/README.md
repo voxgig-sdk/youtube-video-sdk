@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { YoutubeVideoSDK } from '@voxgig-sdk/youtube-video'
+import { YoutubeVideoSDK } from '@voxgig-sdk/youtube-video-sdk'
 
 const client = new YoutubeVideoSDK()
 ```
@@ -417,7 +417,7 @@ youtube-video/
 Import the SDK from the package root:
 
 ```ts
-import { YoutubeVideoSDK } from '@voxgig-sdk/youtube-video'
+import { YoutubeVideoSDK } from '@voxgig-sdk/youtube-video-sdk'
 ```
 
 ### Entity state

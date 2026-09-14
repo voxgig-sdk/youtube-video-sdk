@@ -105,7 +105,7 @@ local result, err = client:Yts():load({ text = "example" })
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/youtube-video` | publish pending — [install from git tag](https://github.com/voxgig-sdk/youtube-video-sdk/releases) |
+| TypeScript | `@voxgig-sdk/youtube-video-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/youtube-video-sdk/releases) |
 | Python | `voxgig-sdk-youtube-video` | publish pending — [install from git tag](https://github.com/voxgig-sdk/youtube-video-sdk/releases) |
 | PHP | `voxgig-sdk/youtube-video` | publish pending — [install from git tag](https://github.com/voxgig-sdk/youtube-video-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/youtube-video-sdk/go` | `go get github.com/voxgig-sdk/youtube-video-sdk/go@latest` |
@@ -119,7 +119,7 @@ local result, err = client:Yts():load({ text = "example" })
 ### TypeScript
 
 ```ts
-import { YoutubeVideoSDK } from '@voxgig-sdk/youtube-video'
+import { YoutubeVideoSDK } from '@voxgig-sdk/youtube-video-sdk'
 
 const client = new YoutubeVideoSDK()
 
