@@ -1,12 +1,18 @@
 # YoutubeVideo SDK feature factory
 
 from youtubevideo_sdk.feature.base_feature import YoutubeVideoBaseFeature
+from youtubevideo_sdk.feature.ratelimit_feature import YoutubeVideoRatelimitFeature
+from youtubevideo_sdk.feature.retry_feature import YoutubeVideoRetryFeature
 from youtubevideo_sdk.feature.test_feature import YoutubeVideoTestFeature
+from youtubevideo_sdk.feature.timeout_feature import YoutubeVideoTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: YoutubeVideoBaseFeature(),
+    "ratelimit": lambda: YoutubeVideoRatelimitFeature(),
+    "retry": lambda: YoutubeVideoRetryFeature(),
     "test": lambda: YoutubeVideoTestFeature(),
+    "timeout": lambda: YoutubeVideoTimeoutFeature(),
 }
 
 
