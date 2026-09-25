@@ -1,0 +1,28 @@
+# BasicYtsFlow
+
+main: kit: flow: BasicYtsFlow:
+{
+  entity: "yts",
+  kind: "basic",
+  name: "BasicYtsFlow",
+  step: [
+    {
+      i: {
+        ref: "yts_ref01",
+        srcdatavar: "yts_ref01_data",
+        suffix: "_dt0"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-yts_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicYtsFlow"
+}

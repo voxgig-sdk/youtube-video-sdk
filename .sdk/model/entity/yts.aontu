@@ -1,0 +1,127 @@
+# Entity: yts
+
+main: kit: entity: yts: {
+
+  alias: field: {}
+
+  fields: {
+    channel: {
+      h: "Channel"
+      n: "channel"
+      r: true
+      sh: "Name of the YouTube channel that uploaded the video"
+      t: "`$STRING`"
+    }
+    description: {
+      h: "Description"
+      n: "description"
+      r: true
+      sh: "Description of the video"
+      t: "`$STRING`"
+    }
+    duration: {
+      h: "Duration"
+      n: "duration"
+      r: true
+      sh: "Duration of the video"
+      t: "`$STRING`"
+    }
+    thumbnail: {
+      fo: "uri"
+      h: "Thumbnail"
+      n: "thumbnail"
+      r: true
+      sh: "URL to the video thumbnail image"
+      t: "`$STRING`"
+    }
+    title: {
+      h: "Title"
+      n: "title"
+      r: true
+      sh: "Title of the YouTube video"
+      t: "`$STRING`"
+    }
+    type: {
+      h: "Type"
+      n: "type"
+      r: true
+      sh: "Type of content"
+      t: "`$STRING`"
+    }
+    uploaded: {
+      h: "Uploaded"
+      n: "uploaded"
+      r: true
+      sh: "Time since the video was uploaded"
+      t: "`$STRING`"
+    }
+    url: {
+      fo: "uri"
+      h: "Url"
+      n: "url"
+      r: true
+      sh: "Direct URL to the YouTube video"
+      t: "`$STRING`"
+    }
+    views: {
+      h: "Views"
+      n: "views"
+      r: true
+      sh: "Number of views the video has received"
+      t: "`$INTEGER`"
+    }
+  }
+
+  name: "yts"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /api/search/yts"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: "heat waves"
+                k: "query"
+                n: "text"
+                or: "text"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/search/yts"
+          q: {
+            exist: [
+              "text"
+            ]
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "search"
+            }
+            {
+              lit: "yts"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.result`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -1,7 +1,7 @@
 // Typed models for the YoutubeVideo SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,15 +14,6 @@ import (
 
 // Yts is the typed data model for the yts entity.
 type Yts struct {
-	Channel string `json:"channel"`
-	Description string `json:"description"`
-	Duration string `json:"duration"`
-	Thumbnail string `json:"thumbnail"`
-	Title string `json:"title"`
-	Type string `json:"type"`
-	Uploaded string `json:"uploaded"`
-	Url string `json:"url"`
-	Views int `json:"views"`
 }
 
 // YtsLoadMatch is the typed request payload for Yts.LoadTyped.

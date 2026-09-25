@@ -91,59 +91,68 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "channel",
+						"title": "Channel",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "Name of the YouTube channel that uploaded the video",
-						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "description",
+						"title": "Description",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "Description of the video",
-						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "duration",
+						"title": "Duration",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "Duration of the video",
-						"type": "`$STRING`",
 					},
 					map[string]any{
-						"format": "uri",
 						"name": "thumbnail",
+						"title": "Thumbnail",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "URL to the video thumbnail image",
-						"type": "`$STRING`",
+						"format": "uri",
 					},
 					map[string]any{
 						"name": "title",
+						"title": "Title",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "Title of the YouTube video",
-						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "type",
+						"title": "Type",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "Type of content",
-						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "uploaded",
+						"title": "Uploaded",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "Time since the video was uploaded",
-						"type": "`$STRING`",
 					},
 					map[string]any{
-						"format": "uri",
 						"name": "url",
+						"title": "Url",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "Direct URL to the YouTube video",
-						"type": "`$STRING`",
+						"format": "uri",
 					},
 					map[string]any{
 						"name": "views",
+						"title": "Views",
+						"type": "`$INTEGER`",
 						"req": true,
 						"short": "Number of views the video has received",
-						"type": "`$INTEGER`",
 					},
 				},
 				"name": "yts",
@@ -153,18 +162,6 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"example": "heat waves",
-											"kind": "query",
-											"name": "text",
-											"orig": "text",
-											"reqd": true,
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/api/search/yts",
@@ -179,19 +176,32 @@ func MakeConfig() map[string]any {
 										"lit": "yts",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"text",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body.result`",
-								},
 								"parts": []any{
 									"api",
 									"search",
 									"yts",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body.result`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "text",
+											"orig": "text",
+											"type": "`$STRING`",
+											"kind": "query",
+											"reqd": true,
+											"example": "heat waves",
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"text",
+									},
 								},
 							},
 						},

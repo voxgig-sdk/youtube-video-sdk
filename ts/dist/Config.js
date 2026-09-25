@@ -11,19 +11,12 @@ const FEATURE_CLASS = {
     test: TestFeature_1.TestFeature,
     timeout: TimeoutFeature_1.TimeoutFeature,
 };
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS = {};
 exports.FEATURE_PLUGINS = FEATURE_PLUGINS;
 class Config {
     makeFeature(fn) {
         const fc = FEATURE_CLASS[fn];
         const fi = new fc();
-        // TODO: errors etc
         return fi;
     }
     // False for a feature added at runtime via options.extend (station's
@@ -114,59 +107,68 @@ class Config {
             "fields": [
                 {
                     "name": "channel",
+                    "title": "Channel",
+                    "type": "`$STRING`",
                     "req": true,
-                    "short": "Name of the YouTube channel that uploaded the video",
-                    "type": "`$STRING`"
+                    "short": "Name of the YouTube channel that uploaded the video"
                 },
                 {
                     "name": "description",
+                    "title": "Description",
+                    "type": "`$STRING`",
                     "req": true,
-                    "short": "Description of the video",
-                    "type": "`$STRING`"
+                    "short": "Description of the video"
                 },
                 {
                     "name": "duration",
+                    "title": "Duration",
+                    "type": "`$STRING`",
                     "req": true,
-                    "short": "Duration of the video",
-                    "type": "`$STRING`"
+                    "short": "Duration of the video"
                 },
                 {
-                    "format": "uri",
                     "name": "thumbnail",
+                    "title": "Thumbnail",
+                    "type": "`$STRING`",
                     "req": true,
                     "short": "URL to the video thumbnail image",
-                    "type": "`$STRING`"
+                    "format": "uri"
                 },
                 {
                     "name": "title",
+                    "title": "Title",
+                    "type": "`$STRING`",
                     "req": true,
-                    "short": "Title of the YouTube video",
-                    "type": "`$STRING`"
+                    "short": "Title of the YouTube video"
                 },
                 {
                     "name": "type",
+                    "title": "Type",
+                    "type": "`$STRING`",
                     "req": true,
-                    "short": "Type of content",
-                    "type": "`$STRING`"
+                    "short": "Type of content"
                 },
                 {
                     "name": "uploaded",
+                    "title": "Uploaded",
+                    "type": "`$STRING`",
                     "req": true,
-                    "short": "Time since the video was uploaded",
-                    "type": "`$STRING`"
+                    "short": "Time since the video was uploaded"
                 },
                 {
-                    "format": "uri",
                     "name": "url",
+                    "title": "Url",
+                    "type": "`$STRING`",
                     "req": true,
                     "short": "Direct URL to the YouTube video",
-                    "type": "`$STRING`"
+                    "format": "uri"
                 },
                 {
                     "name": "views",
+                    "title": "Views",
+                    "type": "`$INTEGER`",
                     "req": true,
-                    "short": "Number of views the video has received",
-                    "type": "`$INTEGER`"
+                    "short": "Number of views the video has received"
                 }
             ],
             "name": "yts",
@@ -176,18 +178,6 @@ class Config {
                     "name": "load",
                     "points": [
                         {
-                            "args": {
-                                "query": [
-                                    {
-                                        "example": "heat waves",
-                                        "kind": "query",
-                                        "name": "text",
-                                        "orig": "text",
-                                        "reqd": true,
-                                        "type": "`$STRING`"
-                                    }
-                                ]
-                            },
                             "kind": "http",
                             "method": "GET",
                             "orig": "/api/search/yts",
@@ -202,20 +192,33 @@ class Config {
                                     "lit": "yts"
                                 }
                             ],
-                            "select": {
-                                "exist": [
-                                    "text"
-                                ]
-                            },
-                            "transform": {
-                                "req": "`reqdata`",
-                                "res": "`body.result`"
-                            },
                             "parts": [
                                 "api",
                                 "search",
                                 "yts"
-                            ]
+                            ],
+                            "rename": {},
+                            "transform": {
+                                "req": "`reqdata`",
+                                "res": "`body.result`"
+                            },
+                            "args": {
+                                "query": [
+                                    {
+                                        "name": "text",
+                                        "orig": "text",
+                                        "type": "`$STRING`",
+                                        "kind": "query",
+                                        "reqd": true,
+                                        "example": "heat waves"
+                                    }
+                                ]
+                            },
+                            "select": {
+                                "exist": [
+                                    "text"
+                                ]
+                            }
                         }
                     ]
                 }

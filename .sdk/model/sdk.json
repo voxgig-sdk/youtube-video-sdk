@@ -24,79 +24,154 @@
         "repr": "auto"
       },
       "contributor": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "published": false,
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "yts": {
           "active": true,
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "channel",
-              "req": true,
-              "short": "Name of the YouTube channel that uploaded the video",
-              "type": "`$STRING`"
+          "fields": {
+            "channel": {
+              "a": true,
+              "h": "Channel",
+              "n": "channel",
+              "r": true,
+              "sh": "Name of the YouTube channel that uploaded the video",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "description",
-              "req": true,
-              "short": "Description of the video",
-              "type": "`$STRING`"
+            "description": {
+              "a": true,
+              "h": "Description",
+              "n": "description",
+              "r": true,
+              "sh": "Description of the video",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "duration",
-              "req": true,
-              "short": "Duration of the video",
-              "type": "`$STRING`"
+            "duration": {
+              "a": true,
+              "h": "Duration",
+              "n": "duration",
+              "r": true,
+              "sh": "Duration of the video",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "format": "uri",
-              "name": "thumbnail",
-              "req": true,
-              "short": "URL to the video thumbnail image",
-              "type": "`$STRING`"
+            "thumbnail": {
+              "a": true,
+              "fo": "uri",
+              "h": "Thumbnail",
+              "n": "thumbnail",
+              "r": true,
+              "sh": "URL to the video thumbnail image",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "title",
-              "req": true,
-              "short": "Title of the YouTube video",
-              "type": "`$STRING`"
+            "title": {
+              "a": true,
+              "h": "Title",
+              "n": "title",
+              "r": true,
+              "sh": "Title of the YouTube video",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "type",
-              "req": true,
-              "short": "Type of content",
-              "type": "`$STRING`"
+            "type": {
+              "a": true,
+              "h": "Type",
+              "n": "type",
+              "r": true,
+              "sh": "Type of content",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "uploaded",
-              "req": true,
-              "short": "Time since the video was uploaded",
-              "type": "`$STRING`"
+            "uploaded": {
+              "a": true,
+              "h": "Uploaded",
+              "n": "uploaded",
+              "r": true,
+              "sh": "Time since the video was uploaded",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "format": "uri",
-              "name": "url",
-              "req": true,
-              "short": "Direct URL to the YouTube video",
-              "type": "`$STRING`"
+            "url": {
+              "a": true,
+              "fo": "uri",
+              "h": "Url",
+              "n": "url",
+              "r": true,
+              "sh": "Direct URL to the YouTube video",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "views",
-              "req": true,
-              "short": "Number of views the video has received",
-              "type": "`$INTEGER`"
+            "views": {
+              "a": true,
+              "h": "Views",
+              "n": "views",
+              "r": true,
+              "sh": "Number of views the video has received",
+              "t": "`$INTEGER`"
             }
-          ],
+          },
           "name": "yts",
           "op": {
             "load": {
@@ -104,30 +179,35 @@
               "name": "load",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /api/search/yts",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "example": "heat waves",
-                        "kind": "query",
-                        "name": "text",
-                        "orig": "text",
-                        "reqd": true,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "heat waves",
+                        "k": "query",
+                        "n": "text",
+                        "or": "text",
+                        "r": true,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /api/search/yts",
-                    "json": "{\"operationId\":\"searchYouTubeVideos\",\"parameters\":[{\"description\":\"Search query text to find YouTube videos\",\"in\":\"query\",\"name\":\"text\",\"required\":true,\"schema\":{\"example\":\"heat waves\",\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"example\":{\"code\":200,\"creator\":\"𝙰𝙱𝙷𝙸𝚂𝙷𝙴𝙺 𝚂𝚄𝚁𝙴𝚂𝙷🍀\",\"result\":{\"channel\":\"Glass Animals\",\"description\":\"I LOVE YOU SO F***ING MUCH. Our fourth studio album. Out now. Order :: https://glassanimals.lnk.to/loveYT Official store ...\",\"duration\":\"3 minutes 56 seconds\",\"thumbnail\":\"https://i.ytimg.com/vi/mRD0-GxqHVo/hq720.jpg\",\"title\":\"Glass Animals - Heat Waves (Official Video)\",\"type\":\"video\",\"uploaded\":\"5 years ago\",\"url\":\"https://youtube.com/watch?v=mRD0-GxqHVo\",\"views\":877598844},\"status\":true},\"schema\":{\"properties\":{\"code\":{\"description\":\"HTTP status code\",\"example\":200,\"type\":\"integer\"},\"creator\":{\"description\":\"API creator attribution\",\"example\":\"𝙰𝙱𝙷𝙸𝚂𝙷𝙴𝙺 𝚂𝚄𝚁𝙴𝚂𝙷🍀\",\"type\":\"string\"},\"result\":{\"properties\":{\"channel\":{\"description\":\"Name of the YouTube channel that uploaded the video\",\"example\":\"Glass Animals\",\"type\":\"string\"},\"description\":{\"description\":\"Description of the video\",\"example\":\"I LOVE YOU SO F***ING MUCH. Our fourth studio album. Out now. Order :: https://glassanimals.lnk.to/loveYT Official store ...\",\"type\":\"string\"},\"duration\":{\"description\":\"Duration of the video\",\"example\":\"3 minutes 56 seconds\",\"type\":\"string\"},\"thumbnail\":{\"description\":\"URL to the video thumbnail image\",\"example\":\"https://i.ytimg.com/vi/mRD0-GxqHVo/hq720.jpg\",\"format\":\"uri\",\"type\":\"string\"},\"title\":{\"description\":\"Title of the YouTube video\",\"example\":\"Glass Animals - Heat Waves (Official Video)\",\"type\":\"string\"},\"type\":{\"description\":\"Type of content\",\"example\":\"video\",\"type\":\"string\"},\"uploaded\":{\"description\":\"Time since the video was uploaded\",\"example\":\"5 years ago\",\"type\":\"string\"},\"url\":{\"description\":\"Direct URL to the YouTube video\",\"example\":\"https://youtube.com/watch?v=mRD0-GxqHVo\",\"format\":\"uri\",\"type\":\"string\"},\"views\":{\"description\":\"Number of views the video has received\",\"example\":877598844,\"type\":\"integer\"}},\"required\":[\"title\",\"type\",\"views\",\"uploaded\",\"duration\",\"description\",\"channel\",\"url\",\"thumbnail\"],\"type\":\"object\"},\"status\":{\"description\":\"Indicates if the request was successful\",\"example\":true,\"type\":\"boolean\"}},\"required\":[\"code\",\"status\",\"result\"],\"type\":\"object\"}}},\"description\":\"Successful response with video information\"},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"HTTP status code\",\"example\":400,\"type\":\"integer\"},\"message\":{\"description\":\"Error message describing what went wrong\",\"example\":\"Invalid search query parameter\",\"type\":\"string\"},\"status\":{\"description\":\"Indicates if the request was successful\",\"example\":false,\"type\":\"boolean\"}},\"required\":[\"code\",\"status\",\"message\"],\"type\":\"object\"}}},\"description\":\"Bad request - missing or invalid search query\"},\"404\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"HTTP status code\",\"example\":400,\"type\":\"integer\"},\"message\":{\"description\":\"Error message describing what went wrong\",\"example\":\"Invalid search query parameter\",\"type\":\"string\"},\"status\":{\"description\":\"Indicates if the request was successful\",\"example\":false,\"type\":\"boolean\"}},\"required\":[\"code\",\"status\",\"message\"],\"type\":\"object\"}}},\"description\":\"No videos found for the given search query\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"HTTP status code\",\"example\":400,\"type\":\"integer\"},\"message\":{\"description\":\"Error message describing what went wrong\",\"example\":\"Invalid search query parameter\",\"type\":\"string\"},\"status\":{\"description\":\"Indicates if the request was successful\",\"example\":false,\"type\":\"boolean\"}},\"required\":[\"code\",\"status\",\"message\"],\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/api/search/yts",
+                  "q": {
+                    "exist": [
+                      "text"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/api/search/yts",
-                  "segments": [
+                  "r": {},
+                  "s": [
                     {
                       "lit": "api"
                     },
@@ -138,12 +218,7 @@
                       "lit": "yts"
                     }
                   ],
-                  "select": {
-                    "exist": [
-                      "text"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body.result`"
                   }
@@ -572,17 +647,17 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "yts_ref01",
                 "srcdatavar": "yts_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {},
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "m": {},
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {

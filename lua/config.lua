@@ -87,59 +87,68 @@ local function make_config()
         ["fields"] = {
           {
             ["name"] = "channel",
+            ["title"] = "Channel",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Name of the YouTube channel that uploaded the video",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "description",
+            ["title"] = "Description",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Description of the video",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "duration",
+            ["title"] = "Duration",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Duration of the video",
-            ["type"] = "`$STRING`",
           },
           {
-            ["format"] = "uri",
             ["name"] = "thumbnail",
+            ["title"] = "Thumbnail",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "URL to the video thumbnail image",
-            ["type"] = "`$STRING`",
+            ["format"] = "uri",
           },
           {
             ["name"] = "title",
+            ["title"] = "Title",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Title of the YouTube video",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "type",
+            ["title"] = "Type",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Type of content",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "uploaded",
+            ["title"] = "Uploaded",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Time since the video was uploaded",
-            ["type"] = "`$STRING`",
           },
           {
-            ["format"] = "uri",
             ["name"] = "url",
+            ["title"] = "Url",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Direct URL to the YouTube video",
-            ["type"] = "`$STRING`",
+            ["format"] = "uri",
           },
           {
             ["name"] = "views",
+            ["title"] = "Views",
+            ["type"] = "`$INTEGER`",
             ["req"] = true,
             ["short"] = "Number of views the video has received",
-            ["type"] = "`$INTEGER`",
           },
         },
         ["name"] = "yts",
@@ -149,18 +158,6 @@ local function make_config()
             ["name"] = "load",
             ["points"] = {
               {
-                ["args"] = {
-                  ["query"] = {
-                    {
-                      ["example"] = "heat waves",
-                      ["kind"] = "query",
-                      ["name"] = "text",
-                      ["orig"] = "text",
-                      ["reqd"] = true,
-                      ["type"] = "`$STRING`",
-                    },
-                  },
-                },
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/search/yts",
@@ -175,19 +172,32 @@ local function make_config()
                     ["lit"] = "yts",
                   },
                 },
-                ["select"] = {
-                  ["exist"] = {
-                    "text",
-                  },
-                },
-                ["transform"] = {
-                  ["req"] = "`reqdata`",
-                  ["res"] = "`body.result`",
-                },
                 ["parts"] = {
                   "api",
                   "search",
                   "yts",
+                },
+                ["rename"] = {},
+                ["transform"] = {
+                  ["req"] = "`reqdata`",
+                  ["res"] = "`body.result`",
+                },
+                ["args"] = {
+                  ["query"] = {
+                    {
+                      ["name"] = "text",
+                      ["orig"] = "text",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "query",
+                      ["reqd"] = true,
+                      ["example"] = "heat waves",
+                    },
+                  },
+                },
+                ["select"] = {
+                  ["exist"] = {
+                    "text",
+                  },
                 },
               },
             },
