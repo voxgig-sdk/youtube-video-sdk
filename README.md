@@ -106,11 +106,11 @@ local result, err = client:Yts():load({ text = "example" })
 | Language | Package | Install |
 | --- | --- | --- |
 | TypeScript | `@voxgig-sdk/youtube-video-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/youtube-video-sdk/tags) |
-| Python | `voxgig-sdk-youtube-video` | publish pending — [install from git tag](https://github.com/voxgig-sdk/youtube-video-sdk/tags) |
-| PHP | `voxgig-sdk/youtube-video` | publish pending — [install from git tag](https://github.com/voxgig-sdk/youtube-video-sdk/tags) |
+| Python | `voxgig-sdk-youtube-video-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/youtube-video-sdk/tags) |
+| PHP | `voxgig-sdk/youtube-video-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/youtube-video-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/youtube-video-sdk/go` | `go get github.com/voxgig-sdk/youtube-video-sdk/go@latest` |
-| Ruby | `voxgig-sdk-youtube-video` | publish pending — [install from git tag](https://github.com/voxgig-sdk/youtube-video-sdk/tags) |
-| Lua | `voxgig-sdk-youtube-video` | publish pending — [install from git tag](https://github.com/voxgig-sdk/youtube-video-sdk/tags) |
+| Ruby | `voxgig-sdk-youtube-video-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/youtube-video-sdk/tags) |
+| Lua | `voxgig-sdk-youtube-video-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/youtube-video-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/youtube-video-sdk/go-cli` | `go install github.com/voxgig-sdk/youtube-video-sdk/go-cli/cmd/youtube-video@latest` |
 | Go MCP server | `github.com/voxgig-sdk/youtube-video-sdk/go-mcp` | `go get github.com/voxgig-sdk/youtube-video-sdk/go-mcp@latest` |
 
@@ -340,10 +340,10 @@ forking the SDK.
 
 | Feature | Purpose |
 | --- | --- |
-| **RatelimitFeature** | Client-side rate limiting via a token bucket |
-| **RetryFeature** | Automatic retry of transient failures with exponential backoff |
-| **TestFeature** | In-memory mock transport for testing without a live server |
-| **TimeoutFeature** | Per-request timeout with transport abort |
+| **RatelimitFeature** | Rate limiting |
+| **RetryFeature** | Retry |
+| **TestFeature** | Test transport |
+| **TimeoutFeature** | Timeout |
 
 Pass custom features via the `extend` option at construction time.
 
