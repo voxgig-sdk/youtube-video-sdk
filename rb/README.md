@@ -12,9 +12,18 @@ The SDK exposes the API as capitalised, semantic **Entities** — for example `c
 
 ## Install
 This package is not yet published to RubyGems. Install it from the
-GitHub release tag (`rb/vX.Y.Z`):
+GitHub release tag (`rb/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/youtube-video-sdk/releases)), or
+from a clone:
 
-- Releases: [https://github.com/voxgig-sdk/youtube-video-sdk/releases](https://github.com/voxgig-sdk/youtube-video-sdk/releases)
+```bash
+git clone https://github.com/voxgig-sdk/youtube-video-sdk
+```
+
+Then add it to your `Gemfile` by path, and run `bundle install`:
+
+```ruby
+gem "voxgig-sdk-youtube-video-sdk", path: "./youtube-video-sdk/rb"
+```
 
 
 ## Tutorial: your first API call
@@ -235,15 +244,10 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `channel` | Name of the YouTube channel that uploaded the video |
-| `description` | Description of the video |
-| `duration` | Duration of the video |
-| `thumbnail` | URL to the video thumbnail image |
-| `title` | Title of the YouTube video |
-| `type` | Type of content |
-| `uploaded` | Time since the video was uploaded |
-| `url` | Direct URL to the YouTube video |
-| `views` | Number of views the video has received |
+| `code` | HTTP status code |
+| `creator` | API creator attribution |
+| `result` |  |
+| `status` | Indicates if the request was successful |
 
 Operations: Load.
 
@@ -268,15 +272,10 @@ Create an instance: `yts = client.Yts`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `channel` | `String` | Name of the YouTube channel that uploaded the video |
-| `description` | `String` | Description of the video |
-| `duration` | `String` | Duration of the video |
-| `thumbnail` | `String` | URL to the video thumbnail image |
-| `title` | `String` | Title of the YouTube video |
-| `type` | `String` | Type of content |
-| `uploaded` | `String` | Time since the video was uploaded |
-| `url` | `String` | Direct URL to the YouTube video |
-| `views` | `Integer` | Number of views the video has received |
+| `code` | `Integer` | HTTP status code |
+| `creator` | `String` | API creator attribution |
+| `result` | `Hash` |  |
+| `status` | `Boolean` | Indicates if the request was successful |
 
 #### Example: Load
 

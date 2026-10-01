@@ -1,13 +1,8 @@
 export interface Yts {
-    channel: string;
-    description: string;
-    duration: string;
-    thumbnail: string;
-    title: string;
-    type: string;
-    uploaded: string;
-    url: string;
-    views: number;
+    code: number;
+    creator?: string;
+    result: Record<string, any>;
+    status: boolean;
 }
 export interface YtsLoadMatch {
     text: string;

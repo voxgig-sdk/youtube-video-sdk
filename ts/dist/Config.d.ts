@@ -80,14 +80,18 @@ declare class Config {
                 type: string;
                 req: boolean;
                 short: string;
-                format?: undefined;
+            } | {
+                name: string;
+                title: string;
+                type: string;
+                short: string;
+                req?: undefined;
             } | {
                 name: string;
                 title: string;
                 type: string;
                 req: boolean;
-                short: string;
-                format: string;
+                short?: undefined;
             })[];
             name: string;
             op: {

@@ -15,9 +15,13 @@ predictable and low-friction for both humans and AI agents.
 
 ## Install
 This package is not yet published to npm. Install it from the GitHub
-release tag (`ts/vX.Y.Z`):
+release tag (`ts/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/youtube-video-sdk/releases)), or from a
+clone, which carries the compiled `dist/`:
 
-- Releases: [https://github.com/voxgig-sdk/youtube-video-sdk/releases](https://github.com/voxgig-sdk/youtube-video-sdk/releases)
+```bash
+git clone https://github.com/voxgig-sdk/youtube-video-sdk
+npm install ./youtube-video-sdk/ts
+```
 
 
 ## Tutorial: your first API call
@@ -290,15 +294,10 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `channel` | Name of the YouTube channel that uploaded the video |
-| `description` | Description of the video |
-| `duration` | Duration of the video |
-| `thumbnail` | URL to the video thumbnail image |
-| `title` | Title of the YouTube video |
-| `type` | Type of content |
-| `uploaded` | Time since the video was uploaded |
-| `url` | Direct URL to the YouTube video |
-| `views` | Number of views the video has received |
+| `code` | HTTP status code |
+| `creator` | API creator attribution |
+| `result` |  |
+| `status` | Indicates if the request was successful |
 
 Operations: load.
 
@@ -323,15 +322,10 @@ Create an instance: `const yts = client.Yts()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `channel` | `string` | Name of the YouTube channel that uploaded the video |
-| `description` | `string` | Description of the video |
-| `duration` | `string` | Duration of the video |
-| `thumbnail` | `string` | URL to the video thumbnail image |
-| `title` | `string` | Title of the YouTube video |
-| `type` | `string` | Type of content |
-| `uploaded` | `string` | Time since the video was uploaded |
-| `url` | `string` | Direct URL to the YouTube video |
-| `views` | `number` | Number of views the video has received |
+| `code` | `number` | HTTP status code |
+| `creator` | `string` | API creator attribution |
+| `result` | `Record<string, any>` |  |
+| `status` | `boolean` | Indicates if the request was successful |
 
 #### Example: Load
 

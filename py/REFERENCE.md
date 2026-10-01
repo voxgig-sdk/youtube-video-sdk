@@ -87,15 +87,10 @@ yts = client.Yts()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `channel` | `str` | Yes | Name of the YouTube channel that uploaded the video |
-| `description` | `str` | Yes | Description of the video |
-| `duration` | `str` | Yes | Duration of the video |
-| `thumbnail` | `str` | Yes | URL to the video thumbnail image |
-| `title` | `str` | Yes | Title of the YouTube video |
-| `type` | `str` | Yes | Type of content |
-| `uploaded` | `str` | Yes | Time since the video was uploaded |
-| `url` | `str` | Yes | Direct URL to the YouTube video |
-| `views` | `int` | Yes | Number of views the video has received |
+| `code` | `int` | Yes | HTTP status code |
+| `creator` | `str` | No | API creator attribution |
+| `result` | `dict` | Yes |  |
+| `status` | `bool` | Yes | Indicates if the request was successful |
 
 ### Operations
 

@@ -37,6 +37,8 @@ require_once __DIR__ . '/TransformResponse.php';
 
 YoutubeVideoUtility::setRegistrar(function (YoutubeVideoUtility $u): void {
     $u->clean = [YoutubeVideoClean::class, 'call'];
+    $u->clean_add = [YoutubeVideoClean::class, 'add'];
+    $u->clean_explain = [YoutubeVideoDone::class, 'clean_explain'];
     $u->done = [YoutubeVideoDone::class, 'call'];
     $u->make_error = [YoutubeVideoMakeError::class, 'call'];
     $u->feature_add = [YoutubeVideoFeatureAdd::class, 'call'];

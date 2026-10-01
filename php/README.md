@@ -12,9 +12,14 @@ The SDK exposes the API as capitalised, semantic **Entities** — for example `$
 
 ## Install
 This package is not yet published to Packagist. Install it from the
-GitHub release tag (`php/vX.Y.Z`):
+GitHub release tag (`php/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/youtube-video-sdk/releases)), or
+from a clone as a Composer path repository:
 
-- Releases: [https://github.com/voxgig-sdk/youtube-video-sdk/releases](https://github.com/voxgig-sdk/youtube-video-sdk/releases)
+```bash
+git clone https://github.com/voxgig-sdk/youtube-video-sdk
+composer config repositories.youtube-video-sdk path ./youtube-video-sdk/php
+composer require voxgig-sdk/youtube-video-sdk:@dev
+```
 
 
 ## Tutorial: your first API call
@@ -245,15 +250,10 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `channel` | Name of the YouTube channel that uploaded the video |
-| `description` | Description of the video |
-| `duration` | Duration of the video |
-| `thumbnail` | URL to the video thumbnail image |
-| `title` | Title of the YouTube video |
-| `type` | Type of content |
-| `uploaded` | Time since the video was uploaded |
-| `url` | Direct URL to the YouTube video |
-| `views` | Number of views the video has received |
+| `code` | HTTP status code |
+| `creator` | API creator attribution |
+| `result` |  |
+| `status` | Indicates if the request was successful |
 
 Operations: Load.
 
@@ -278,15 +278,10 @@ Create an instance: `$yts = $client->Yts();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `channel` | `string` | Name of the YouTube channel that uploaded the video |
-| `description` | `string` | Description of the video |
-| `duration` | `string` | Duration of the video |
-| `thumbnail` | `string` | URL to the video thumbnail image |
-| `title` | `string` | Title of the YouTube video |
-| `type` | `string` | Type of content |
-| `uploaded` | `string` | Time since the video was uploaded |
-| `url` | `string` | Direct URL to the YouTube video |
-| `views` | `int` | Number of views the video has received |
+| `code` | `int` | HTTP status code |
+| `creator` | `string` | API creator attribution |
+| `result` | `array` |  |
+| `status` | `bool` | Indicates if the request was successful |
 
 #### Example: Load
 

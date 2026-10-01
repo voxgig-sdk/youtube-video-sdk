@@ -97,79 +97,36 @@
             "field": {}
           },
           "fields": {
-            "channel": {
+            "code": {
               "a": true,
-              "h": "Channel",
-              "n": "channel",
+              "h": "Code",
+              "n": "code",
               "r": true,
-              "sh": "Name of the YouTube channel that uploaded the video",
-              "t": "`$STRING`"
-            },
-            "description": {
-              "a": true,
-              "h": "Description",
-              "n": "description",
-              "r": true,
-              "sh": "Description of the video",
-              "t": "`$STRING`"
-            },
-            "duration": {
-              "a": true,
-              "h": "Duration",
-              "n": "duration",
-              "r": true,
-              "sh": "Duration of the video",
-              "t": "`$STRING`"
-            },
-            "thumbnail": {
-              "a": true,
-              "fo": "uri",
-              "h": "Thumbnail",
-              "n": "thumbnail",
-              "r": true,
-              "sh": "URL to the video thumbnail image",
-              "t": "`$STRING`"
-            },
-            "title": {
-              "a": true,
-              "h": "Title",
-              "n": "title",
-              "r": true,
-              "sh": "Title of the YouTube video",
-              "t": "`$STRING`"
-            },
-            "type": {
-              "a": true,
-              "h": "Type",
-              "n": "type",
-              "r": true,
-              "sh": "Type of content",
-              "t": "`$STRING`"
-            },
-            "uploaded": {
-              "a": true,
-              "h": "Uploaded",
-              "n": "uploaded",
-              "r": true,
-              "sh": "Time since the video was uploaded",
-              "t": "`$STRING`"
-            },
-            "url": {
-              "a": true,
-              "fo": "uri",
-              "h": "Url",
-              "n": "url",
-              "r": true,
-              "sh": "Direct URL to the YouTube video",
-              "t": "`$STRING`"
-            },
-            "views": {
-              "a": true,
-              "h": "Views",
-              "n": "views",
-              "r": true,
-              "sh": "Number of views the video has received",
+              "sh": "HTTP status code",
               "t": "`$INTEGER`"
+            },
+            "creator": {
+              "a": true,
+              "h": "Creator",
+              "n": "creator",
+              "r": false,
+              "sh": "API creator attribution",
+              "t": "`$STRING`"
+            },
+            "result": {
+              "a": true,
+              "h": "Result",
+              "n": "result",
+              "r": true,
+              "t": "`$OBJECT`"
+            },
+            "status": {
+              "a": true,
+              "h": "Status",
+              "n": "status",
+              "r": true,
+              "sh": "Indicates if the request was successful",
+              "t": "`$BOOLEAN`"
             }
           },
           "name": "yts",
@@ -220,7 +177,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body.result`"
+                    "res": "`body`"
                   }
                 }
               ]
@@ -707,7 +664,12 @@
         },
         "base": "http://localhost:8000",
         "clean": {
-          "keys": "key,token,id"
+          "active": true,
+          "hint": "0",
+          "keys": "key,secret,token,password,passwd,authorization,cookie,credential,signature",
+          "mask": "[redacted]",
+          "min": "4",
+          "values": ""
         },
         "entity": {
           "`$CHILD`": {

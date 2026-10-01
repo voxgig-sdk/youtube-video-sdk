@@ -33,6 +33,8 @@ require_relative 'transform_response'
 
 YoutubeVideoUtility.registrar = ->(u) {
   u.clean = YoutubeVideoUtilities::Clean
+  u.clean_add = YoutubeVideoUtilities::CleanAdd
+  u.clean_explain = YoutubeVideoUtilities::CleanExplain
   u.done = YoutubeVideoUtilities::Done
   u.make_error = YoutubeVideoUtilities::MakeError
   u.feature_add = YoutubeVideoUtilities::FeatureAdd

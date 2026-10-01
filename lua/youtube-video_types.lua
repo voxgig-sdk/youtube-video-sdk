@@ -7,15 +7,10 @@
 -- edit by hand.
 
 ---@class Yts
----@field channel string
----@field description string
----@field duration string
----@field thumbnail string
----@field title string
----@field type string
----@field uploaded string
----@field url string
----@field views number
+---@field code number
+---@field creator? string
+---@field result table
+---@field status boolean
 
 ---@class YtsLoadMatch
 ---@field text string

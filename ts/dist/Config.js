@@ -106,69 +106,30 @@ class Config {
         "yts": {
             "fields": [
                 {
-                    "name": "channel",
-                    "title": "Channel",
-                    "type": "`$STRING`",
-                    "req": true,
-                    "short": "Name of the YouTube channel that uploaded the video"
-                },
-                {
-                    "name": "description",
-                    "title": "Description",
-                    "type": "`$STRING`",
-                    "req": true,
-                    "short": "Description of the video"
-                },
-                {
-                    "name": "duration",
-                    "title": "Duration",
-                    "type": "`$STRING`",
-                    "req": true,
-                    "short": "Duration of the video"
-                },
-                {
-                    "name": "thumbnail",
-                    "title": "Thumbnail",
-                    "type": "`$STRING`",
-                    "req": true,
-                    "short": "URL to the video thumbnail image",
-                    "format": "uri"
-                },
-                {
-                    "name": "title",
-                    "title": "Title",
-                    "type": "`$STRING`",
-                    "req": true,
-                    "short": "Title of the YouTube video"
-                },
-                {
-                    "name": "type",
-                    "title": "Type",
-                    "type": "`$STRING`",
-                    "req": true,
-                    "short": "Type of content"
-                },
-                {
-                    "name": "uploaded",
-                    "title": "Uploaded",
-                    "type": "`$STRING`",
-                    "req": true,
-                    "short": "Time since the video was uploaded"
-                },
-                {
-                    "name": "url",
-                    "title": "Url",
-                    "type": "`$STRING`",
-                    "req": true,
-                    "short": "Direct URL to the YouTube video",
-                    "format": "uri"
-                },
-                {
-                    "name": "views",
-                    "title": "Views",
+                    "name": "code",
+                    "title": "Code",
                     "type": "`$INTEGER`",
                     "req": true,
-                    "short": "Number of views the video has received"
+                    "short": "HTTP status code"
+                },
+                {
+                    "name": "creator",
+                    "title": "Creator",
+                    "type": "`$STRING`",
+                    "short": "API creator attribution"
+                },
+                {
+                    "name": "result",
+                    "title": "Result",
+                    "type": "`$OBJECT`",
+                    "req": true
+                },
+                {
+                    "name": "status",
+                    "title": "Status",
+                    "type": "`$BOOLEAN`",
+                    "req": true,
+                    "short": "Indicates if the request was successful"
                 }
             ],
             "name": "yts",
@@ -200,7 +161,7 @@ class Config {
                             "rename": {},
                             "transform": {
                                 "req": "`reqdata`",
-                                "res": "`body.result`"
+                                "res": "`body`"
                             },
                             "args": {
                                 "query": [

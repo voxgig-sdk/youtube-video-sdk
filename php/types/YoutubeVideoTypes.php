@@ -15,15 +15,10 @@ declare(strict_types=1);
 /** Yts entity data model. */
 class Yts
 {
-    public string $channel;
-    public string $description;
-    public string $duration;
-    public string $thumbnail;
-    public string $title;
-    public string $type;
-    public string $uploaded;
-    public string $url;
-    public int $views;
+    public int $code;
+    public ?string $creator = null;
+    public array $result;
+    public bool $status;
 }
 
 /** Request payload for Yts#load. */

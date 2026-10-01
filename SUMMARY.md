@@ -20,11 +20,9 @@ SDK operations: `load`.
 
 Key fields to recognise:
 
-- `channel`: Name of the YouTube channel that uploaded the video
-- `description`: Description of the video
-- `duration`: Duration of the video
-- `thumbnail`: URL to the video thumbnail image
-- `title`: Title of the YouTube video
+- `code`: HTTP status code
+- `creator`: API creator attribution
+- `status`: Indicates if the request was successful
 
 ### Route map
 

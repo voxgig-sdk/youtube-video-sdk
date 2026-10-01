@@ -16,16 +16,14 @@ from __future__ import annotations
 from typing import TypedDict, Any
 
 
-class Yts(TypedDict):
-    channel: str
-    description: str
-    duration: str
-    thumbnail: str
-    title: str
-    type: str
-    uploaded: str
-    url: str
-    views: int
+class YtsRequired(TypedDict):
+    code: int
+    result: dict
+    status: bool
+
+
+class Yts(YtsRequired, total=False):
+    creator: str
 
 
 class YtsLoadMatch(TypedDict):

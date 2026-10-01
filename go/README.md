@@ -258,15 +258,10 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"channel"` | Name of the YouTube channel that uploaded the video |
-| `"description"` | Description of the video |
-| `"duration"` | Duration of the video |
-| `"thumbnail"` | URL to the video thumbnail image |
-| `"title"` | Title of the YouTube video |
-| `"type"` | Type of content |
-| `"uploaded"` | Time since the video was uploaded |
-| `"url"` | Direct URL to the YouTube video |
-| `"views"` | Number of views the video has received |
+| `"code"` | HTTP status code |
+| `"creator"` | API creator attribution |
+| `"result"` |  |
+| `"status"` | Indicates if the request was successful |
 
 Operations: Load.
 
@@ -291,15 +286,10 @@ Create an instance: `yts := client.Yts(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `channel` | `string` | Name of the YouTube channel that uploaded the video |
-| `description` | `string` | Description of the video |
-| `duration` | `string` | Duration of the video |
-| `thumbnail` | `string` | URL to the video thumbnail image |
-| `title` | `string` | Title of the YouTube video |
-| `type` | `string` | Type of content |
-| `uploaded` | `string` | Time since the video was uploaded |
-| `url` | `string` | Direct URL to the YouTube video |
-| `views` | `int` | Number of views the video has received |
+| `code` | `int` | HTTP status code |
+| `creator` | `string` | API creator attribution |
+| `result` | `map[string]any` |  |
+| `status` | `bool` | Indicates if the request was successful |
 
 #### Example: Load
 

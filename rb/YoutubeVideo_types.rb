@@ -10,42 +10,22 @@
 
 # Yts entity data model.
 #
-# @!attribute [rw] channel
-#   @return [String]
-#
-# @!attribute [rw] description
-#   @return [String]
-#
-# @!attribute [rw] duration
-#   @return [String]
-#
-# @!attribute [rw] thumbnail
-#   @return [String]
-#
-# @!attribute [rw] title
-#   @return [String]
-#
-# @!attribute [rw] type
-#   @return [String]
-#
-# @!attribute [rw] uploaded
-#   @return [String]
-#
-# @!attribute [rw] url
-#   @return [String]
-#
-# @!attribute [rw] views
+# @!attribute [rw] code
 #   @return [Integer]
+#
+# @!attribute [rw] creator
+#   @return [String, nil]
+#
+# @!attribute [rw] result
+#   @return [Hash]
+#
+# @!attribute [rw] status
+#   @return [Boolean]
 Yts = Struct.new(
-  :channel,
-  :description,
-  :duration,
-  :thumbnail,
-  :title,
-  :type,
-  :uploaded,
-  :url,
-  :views,
+  :code,
+  :creator,
+  :result,
+  :status,
   keyword_init: true
 )
 
