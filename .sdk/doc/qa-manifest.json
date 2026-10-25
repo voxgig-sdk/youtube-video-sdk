@@ -3,5 +3,15 @@
     "SUMMARY.md"
   ],
   "config": ".sdk/doc/qa/vale.ini",
-  "routes": {}
+  "routes": {},
+  "quoted": {
+    "SUMMARY.md": [
+      "API creator attribution",
+      "HTTP status code",
+      "Indicates if the request was successful",
+      "Production server",
+      "Successful response with video information",
+      "This API provides data related to YouTube videos, including details such as views, upload date, duration, and descriptions. It allows developers to fetch comprehensive information about specific videos from the platform."
+    ]
+  }
 }

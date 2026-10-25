@@ -54,6 +54,14 @@ const utility_1 = require("../../utility");
         const ent = testsdk.Yts();
         (0, node_assert_1.default)(null != ent);
     });
+    (0, node_test_1.test)('validate', async (t) => {
+        if (null == __1.config.feature?.validate) {
+            t.skip('feature not present in this SDK: validate');
+            return;
+        }
+        const client = __1.YoutubeVideoSDK.test(undefined, { feature: { validate: { active: true } } });
+        await node_assert_1.default.rejects(client.Yts().load({ "text": 1 }), (err) => 'validate_failed' === err.code);
+    });
     (0, node_test_1.test)('basic', async (t) => {
         const live = 'TRUE' === process.env.YOUTUBE_VIDEO_TEST_LIVE;
         for (const op of ['load']) {
@@ -62,7 +70,7 @@ const utility_1 = require("../../utility");
         }
         const setup = basicSetup();
         if (setup.live) {
-            return (0, live_entity_1.runLiveEntity)(setup, { "active": true, "alias": { "field": {} }, "fields": { "code": { "a": true, "h": "Code", "n": "code", "r": true, "sh": "HTTP status code", "t": "`$INTEGER`", "key$": "code", "index$": 0 }, "creator": { "a": true, "h": "Creator", "n": "creator", "r": false, "sh": "API creator attribution", "t": "`$STRING`", "key$": "creator", "index$": 1 }, "result": { "a": true, "h": "Result", "n": "result", "r": true, "t": "`$OBJECT`", "key$": "result", "index$": 2 }, "status": { "a": true, "h": "Status", "n": "status", "r": true, "sh": "Indicates if the request was successful", "t": "`$BOOLEAN`", "key$": "status", "index$": 3 } }, "name": "yts", "op": { "load": { "input": "data", "name": "load", "points": [{ "a": true, "co": { "id": "GET /api/search/yts", "source": "openapi3", "version": 2 }, "g": { "query": [{ "a": true, "ex": "heat waves", "k": "query", "n": "text", "or": "text", "r": true, "t": "`$STRING`", "index$": 0 }] }, "k": "http", "m": "GET", "o": "/api/search/yts", "q": { "exist": ["text"] }, "r": {}, "s": [{ "lit": "api" }, { "lit": "search" }, { "lit": "yts" }], "t": { "req": "`reqdata`", "res": "`body`" }, "index$": 0 }], "key$": "load" } }, "relations": { "ancestors": [] }, "key$": "yts", "name__orig": "yts", "Name": "Yts", "name_": "yts", "name-": "yts", "NAME": "YTS", "index$": 0 }, { "active": true, "entity": "yts", "key$": "BasicYtsFlow", "kind": "basic", "name": "BasicYtsFlow", "param": {}, "step": [{ "a": true, "d": {}, "i": { "ref": "yts_ref01", "srcdatavar": "yts_ref01_data", "suffix": "_dt0" }, "m": {}, "o": "load", "s": [], "v": [{ "apply": "TextFieldMark", "def": { "mark": "Mark01-yts_ref01" } }], "index$": 0 }] }, 'Yts', { "GET /api/search/yts": { "protocol": "http", "parameters": [{ "name": "text", "in": "query", "description": "Search query text to find YouTube videos", "required": true, "schema": { "type": "string", "example": "heat waves" }, "index$": 0 }] } });
+            return (0, live_entity_1.runLiveEntity)(setup, { "active": true, "alias": { "field": {} }, "fields": { "code": { "a": true, "h": "Code", "n": "code", "r": true, "sh": "HTTP status code", "t": "`$INTEGER`", "key$": "code", "index$": 0 }, "creator": { "a": true, "h": "Creator", "n": "creator", "r": false, "sh": "API creator attribution", "t": "`$STRING`", "key$": "creator", "index$": 1 }, "result": { "a": true, "h": "Result", "n": "result", "r": true, "t": "`$OBJECT`", "key$": "result", "index$": 2 }, "status": { "a": true, "h": "Status", "n": "status", "r": true, "sh": "Indicates if the request was successful", "t": "`$BOOLEAN`", "key$": "status", "index$": 3 } }, "name": "yts", "op": { "load": { "input": "data", "name": "load", "points": [{ "a": true, "co": { "id": "GET /api/search/yts", "source": "openapi3", "version": 2 }, "g": { "query": [{ "a": true, "ex": "heat waves", "k": "query", "n": "text", "or": "text", "r": true, "t": "`$STRING`", "index$": 0 }] }, "k": "http", "m": "GET", "o": "/api/search/yts", "q": { "exist": ["text"] }, "r": {}, "rs": { "kind": "json", "media": "application/json" }, "s": [{ "lit": "api" }, { "lit": "search" }, { "lit": "yts" }], "t": { "req": "`reqdata`", "res": "`body`" }, "index$": 0 }], "key$": "load" } }, "relations": { "ancestors": [] }, "key$": "yts", "name__orig": "yts", "Name": "Yts", "name_": "yts", "name-": "yts", "NAME": "YTS", "index$": 0 }, { "active": true, "entity": "yts", "key$": "BasicYtsFlow", "kind": "basic", "name": "BasicYtsFlow", "param": {}, "step": [{ "a": true, "d": {}, "i": { "ref": "yts_ref01", "srcdatavar": "yts_ref01_data", "suffix": "_dt0" }, "m": {}, "o": "load", "s": [], "v": [{ "apply": "TextFieldMark", "def": { "mark": "Mark01-yts_ref01" } }], "index$": 0 }] }, 'Yts', { "GET /api/search/yts": { "protocol": "http", "parameters": [{ "name": "text", "in": "query", "description": "Search query text to find YouTube videos", "required": true, "schema": { "type": "string", "example": "heat waves" }, "index$": 0 }] } }, { strict: LIVE_STRICT, t });
         }
         const client = setup.client;
         const struct = setup.struct;
@@ -76,6 +84,11 @@ const utility_1 = require("../../utility");
         (0, node_assert_1.default)(null != yts_ref01_data_dt0);
     });
 });
+// main.kit.test.live.strict is true (the default is true): a live
+// request that fails, or a live test missing an input it needs,
+// fails the test.
+// An account with no record for a test to read skips it either way.
+const LIVE_STRICT = true;
 function basicSetup(extra) {
     // TODO: fix test def options
     const options = {}; // null

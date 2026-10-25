@@ -64,6 +64,10 @@ main: kit: entity: yts: {
               "text"
             ]
           }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
           s: [
             {
               lit: "api"

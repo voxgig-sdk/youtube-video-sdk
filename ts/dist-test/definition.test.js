@@ -19,8 +19,18 @@ const PLAN = [
             "text": "heat waves"
         },
         "headers": [],
+        "cookies": [],
+        "responseMedia": [
+            "application/json"
+        ],
         "query": [
             "text"
+        ],
+        "queryArgs": [
+            {
+                "name": "text",
+                "wire": "text"
+            }
         ],
         "auth": null,
         "status": 200,

@@ -79,6 +79,7 @@ module YoutubeVideoConfig
           },
           "optspec" => {
             "clearTimer" => "`$FUNCTION`",
+            "now" => "`$FUNCTION`",
             "setTimer" => "`$FUNCTION`",
           },
           "strict" => false,
@@ -171,6 +172,10 @@ module YoutubeVideoConfig
                     "exist" => [
                       "text",
                     ],
+                  },
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
                   },
                 },
               ],
